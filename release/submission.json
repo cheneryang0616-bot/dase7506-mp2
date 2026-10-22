@@ -1,0 +1,38 @@
+{
+  "project": "DASE7506 MP2",
+  "student_id": "3036837382",
+  "account": "cheneryang0616-bot",
+  "status": "submitted_and_listed_self_reported",
+  "issue_url": "https://github.com/xudongwu-0/xudongwu-0.github.io/issues/243",
+  "issue_number": 243,
+  "submitted_at_utc": "2026-10-22T14:48:43Z",
+  "submitted_at_hong_kong": "2026-10-22 22:48:43 UTC+8",
+  "official_accuracy": 79.65738758029978,
+  "correct": 372,
+  "n": 467,
+  "source_url": "https://github.com/cheneryang0616-bot/dase7506-mp2/tree/mp2-final-20261022",
+  "source_tag": "mp2-final-20261022",
+  "source_commit": "f361355970b4843a72b54e8c6c28b5b752acc8de",
+  "source_tree": "76bc9bd64f05197ff43f50b35e5113fb96f89601",
+  "checkpoint_url": "https://github.com/cheneryang0616-bot/dase7506-mp2/releases/download/mp2-final-20261022/model_bundle.zip",
+  "checkpoint_archive_sha256": "a9f350c14881b9fc592d94b970e914acec47103b2852474e809d2158163f7b12",
+  "checkpoint_archive_bytes": 26512,
+  "inference_asset_bytes": 26244,
+  "checkpoint_archive_download_verified": true,
+  "website_generated_encrypted_body_preserved": true,
+  "leaderboard": {
+    "url": "https://xudongwu-0.github.io/courses/dase7506/mp2/#leaderboard",
+    "observed_updated_at_hong_kong": "2026-10-22 22:48:56 UTC+8",
+    "rank_at_observation": 4,
+    "displayed_accuracy": "79.6574%",
+    "artifacts": "Links received",
+    "submission": "#243",
+    "status": "Self-reported"
+  },
+  "notes": [
+    "Leaderboard rank can change. Listing is not instructor verification or a grade.",
+    "The final model, official score and frozen source tag remain unchanged by later receipt-only updates.",
+    "Local original source history is preserved on the local-audit-history branch; connected GitHub publishing used the identical source tree after local HTTPS write permission was denied."
+  ],
+  "issue_body_sha256": "6c244ac27f89e7cc18f013c386b029f38fb741033b89fa718cf6a74e3e6df4b3"
+}

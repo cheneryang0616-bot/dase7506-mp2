@@ -15,8 +15,8 @@ Status: 2026-10-22, UTC+8. Deadline: 2026-10-31 23:59.
 - [x] Independent-directory fresh-process verification exactly reproduces test predictions and score.
 - [x] Assets total 26,244 B, below 16 MiB; local complete CPU timing is below 30 s.
 - [x] Report rebuilt and visually checked; seven pages, including AI/reuse disclosure.
-- [ ] Tagged source and matching checkpoint published and independently accessible.
-- [ ] Encrypted artifact links submitted through the MP2 website and GitHub issue confirmed.
+- [x] Tagged source and matching checkpoint published and independently accessible.
+- [x] Encrypted artifact links submitted through the MP2 website; issue #243 and leaderboard listing confirmed.
 
 Evidence is in runs/corrections/ and release/experiment-summary.json. The independent-copy
 verification uses the installed Python environment, not a fresh package installation.
@@ -25,5 +25,6 @@ and test-access chronology cannot be independently established by the saved hist
 this revision makes no retrospective guarantee. All new controls are diagnostic and
 preserve the original final model and test result.
 
-Public release and the successful submission issue will be recorded separately in
-release/submission.json once those external actions are verified.
+Submission receipt: release/submission.json. Issue: https://github.com/xudongwu-0/xudongwu-0.github.io/issues/243
+Leaderboard status is Self-reported, not instructor verification. The frozen source
+tag is unchanged; this checklist and receipt are post-publication records on main.

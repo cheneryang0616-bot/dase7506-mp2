@@ -173,3 +173,11 @@ AI assistance implemented code, ran experiments, drafted the report and helped
 audit and correct it. Saved logs and official scorers support numerical claims.
 The student remains responsible for reviewing the implementation and claims.
 GSM8K and Qwen3-0.6B attribution and the supplied license/notice are retained.
+
+## 7. Submission receipt
+
+Submitted on 22 October 2026 at 22:48:43 (Hong Kong time):
+[course issue #243](https://github.com/xudongwu-0/xudongwu-0.github.io/issues/243).
+The leaderboard lists 79.6574% with Links received and Self-reported status.
+See release/submission.json for the verified source, checkpoint and body hash.
+This receipt update does not change the frozen mp2-final-20261022 tag.
