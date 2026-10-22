@@ -1,0 +1,14 @@
+# environments
+code/.venv/
+__pycache__/
+*.pyc
+
+# official data is redistributed by the course package, not committed here
+code/data/
+
+# large intermediate bundles from sweeps
+runs/bundles/
+runs/corrections/bundles/
+
+# OS
+.DS_Store

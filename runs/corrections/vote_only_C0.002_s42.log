@@ -1,0 +1,12 @@
+{
+  "config": "m0_voteonly",
+  "spec": "vote",
+  "dim": 5,
+  "C": 0.002,
+  "seed": 42,
+  "train_accuracy_pct": 85.2576,
+  "validation_accuracy_pct": 86.2155,
+  "feature_seconds": 0.643,
+  "fit_seconds": 0.644,
+  "train_pos_rate": 0.7546
+}

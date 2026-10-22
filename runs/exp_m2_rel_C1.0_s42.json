@@ -1,0 +1,10 @@
+{
+  "run_id": "m2_rel_C1.0_s42",
+  "config": "m2_rel",
+  "spec": "l2+rel",
+  "dim": 2048,
+  "C": 1.0,
+  "seed": 42,
+  "train_accuracy_pct": 93.796,
+  "validation_accuracy_pct": 89.9749
+}

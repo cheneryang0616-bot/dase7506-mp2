@@ -1,0 +1,10 @@
+{
+  "run_id": "m2_relvote_C0.0003_s42",
+  "config": "m2_relvote",
+  "spec": "l2+rel+vote",
+  "dim": 2053,
+  "C": 0.0003,
+  "seed": 42,
+  "train_accuracy_pct": 91.3985,
+  "validation_accuracy_pct": 91.2281
+}

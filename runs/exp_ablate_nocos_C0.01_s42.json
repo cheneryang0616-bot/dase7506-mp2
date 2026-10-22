@@ -1,0 +1,10 @@
+{
+  "run_id": "ablate_nocos_C0.01_s42",
+  "config": "ablate_nocos",
+  "spec": "l2+rel+vote",
+  "dim": 2053,
+  "C": 0.01,
+  "seed": 42,
+  "train_accuracy_pct": 93.5016,
+  "validation_accuracy_pct": 91.2281
+}

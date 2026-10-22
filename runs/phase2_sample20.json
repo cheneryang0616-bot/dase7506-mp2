@@ -1,0 +1,442 @@
+[
+  {
+    "id": "gsm8k:dcddb345ed871819274e746ca931847f1bb2fcc2440eb8d2f69a2e9bd91c46fa",
+    "question": "Tony has to run several errands in a day.  He needs to drive 10 miles to get groceries, 15 miles to get a haircut and 5 miles to go to a doctor's appointment.  How many miles will Tony have driven when he is halfway through driving around for his errands?",
+    "candidates": [
+      "Tony has to drive 10 miles for groceries, 15 miles for a haircut, and 5 miles for a doctor's appointment. He needs to drive **halfway** through these errands.\n\n- Halfway through the total distance:  \n  $ \\frac{10 + 15 + 5}{2} = \\frac{30}{2} = 15 $ miles.\n\n**Answer:** $ \\boxed{15} $",
+      "Tony needs to drive:\n\n- 10 miles for groceries  \n- 15 miles for a haircut  \n- 5 miles for a doctor's appointment  \n\nTo find the **total distance** for all errands:\n\n$$\n10 + 15 + 5 = 30 \\text{ miles}\n$$\n\nHe is **halfway** through driving around for his errands. So, the **halfway point** is:\n\n$$\n\\frac{30}{2} = 15 \\text{ miles}\n$$\n\n### ✅ Final Answer: **15** miles.",
+      "Tony needs to drive:\n\n- 10 miles to get groceries  \n- 15 miles to get a haircut  \n- 5 miles to go to a doctor's appointment  \n\nHe is halfway through driving around for his errands. So, we calculate the halfway point between the total miles he has to drive:\n\n$$\n\\text{Total distance} = 10 + 15 + 5 = 30 \\text{ miles}\n$$\n\n$$\n\\text{Halfway point} = \\frac{30}{2} = 15 \\text{ miles}\n$$\n\n**Answer:** $ \\boxed{15} $",
+      "Tony needs to drive:\n\n- **10 miles** for groceries  \n- **15 miles** for a haircut  \n- **5 miles** for a doctor's appointment  \n\nHe is halfway through driving around for his errands. That means he has driven **half of the total distance**.\n\nSo, the total distance is:\n\n$$\n10 + 15 + 5 = 30 \\text{ miles}\n$$\n\nHalfway through driving is:\n\n$$\n\\frac{30}{2} = 15 \\text{ miles}\n$$\n\n**Answer:** $\\boxed{15}$"
+    ],
+    "parsed": [
+      "15",
+      null,
+      "15",
+      "15"
+    ],
+    "labels": [
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:ebe96bf3f01a8fd5676acc084b67aa5a571bff7091c6a774cdae9da5db8e3d1e",
+    "question": "Alyana has a pizza that is cut into 16 slices. After she and her friends finish eating, there are 4 slices left. If each of them ate 2 slices of pizza, how many people ate the pizza?",
+    "candidates": [
+      "We are told:\n\n- A pizza is cut into **16 slices**.\n- After Alyana and her friends eat, **4 slices are left**.\n- Each person ate **2 slices**.\n\n---\n\n### Step 1: Total slices eaten by people\n\n- Total slices = 16  \n- Left slices = 4  \n- Slices eaten = $16 - 4 = 12$\n\n---\n\n### Step 2: Number of people who ate the pizza\n\n- Each person ate 2 slices  \n- So the number of people = $\\frac{12}{2} = 6$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{6}\n$$",
+      "We are told:\n\n- There are **16 slices** of pizza.\n- After Alyana and her friends finish eating, **4 slices remain**.\n- Each person ate **2 slices**.\n\n### Step 1: Find how many people ate the pizza.\n\n1. Total slices eaten = Total slices - Slices left  \n   $$\n   \\text{Slices eaten} = 16 - 4 = 12\n   $$\n\n2. Each person ate 2 slices, so the number of people is:\n   $$\n   \\text{Number of people} = \\frac{12}{2} = 6\n   $$\n\n### Final Answer:\n\n$$\n\\boxed{6}\n$$",
+      "We are given:\n\n- A pizza is cut into **16 slices**.\n- After eating, **4 slices remain**.\n- Each person ate **2 slices**.\n- We need to find how many people ate the pizza.\n\n### Step 1: Total slices eaten = Total slices - remaining slices  \n$$\n\\text{Total slices eaten} = 16 - 4 = 12\n$$\n\n### Step 2: Each person ate 2 slices  \n$$\n\\text{Number of people} = \\frac{12}{2} = 6\n$$\n\n### Final Answer:  \n$$\n\\boxed{6}\n$$",
+      "We are told:\n\n- A pizza is cut into **16 slices**.\n- After eating, **4 slices are left**.\n- Each person ate **2 slices**.\n\nLet’s solve step by step:\n\n1. Total slices eaten = Total slices - Slices left  \n   → Total slices eaten = $ 16 - 4 = 12 $\n\n2. Each person ate 2 slices  \n   → Number of people = $ \\frac{12}{2} = 6 $\n\n### ✅ Final Answer: **6**"
+    ],
+    "parsed": [
+      "6",
+      "6",
+      "6",
+      null
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "gsm8k:61af08f5e783fa5b96aa2f9fe6e914a9896281ede3fd2e45618db4de6939604f",
+    "question": "While buying DVDs at the store, Maria received a 25% discount. If the discount she received is $40, how much did she pay in total?",
+    "candidates": [
+      "Maria received a **25% discount**, and the discount amount is **$40**.\n\nTo find the **original price** of the DVDs:\n\n$$\n\\text{Original Price} = \\frac{\\text{Discount}}{\\text{Discount Rate}} = \\frac{40}{0.25} = 160\n$$\n\nNow, to find the **total amount paid**:\n\n$$\n\\text{Total Amount} = \\text{Original Price} - \\text{Discount} = 160 - 40 = 120\n$$\n\n### Final Answer:\n\n$$\n\\boxed{120}\n$$",
+      "Maria received a **25% discount** of $40, so the **original price** of the DVD can be found by:\n\n$$\n\\text{Original price} = \\frac{\\text{Discount}}{\\text{Discount rate}} = \\frac{40}{0.25} = 160\n$$\n\nMaria paid **$160** in total.\n\n#### <numeric answer> 160",
+      "Maria received a **25% discount** of $40. To find the **total amount she paid**, we first calculate the **original price**:\n\n$$\n\\text{Original price} = \\frac{\\text{Discount}}{\\text{Discount percentage}} = \\frac{40}{0.25} = 160\n$$\n\nNow, she paid **25% of the original price**:\n\n$$\n\\text{Amount paid} = 160 \\times 0.25 = 40\n$$\n\n### Final Answer:\n$$\n\\boxed{40}\n$$",
+      "Maria received a **25% discount** of **$40**, and we need to find how much she **paid in total**.\n\n1. Let the **original price** of the DVDs be $ x $.\n\n2. The discount amount is 25% of $ x $, so:\n   $$\n   0.25x = 40\n   $$\n\n3. Solve for $ x $:\n   $$\n   x = \\frac{40}{0.25} = 160\n   $$\n\n4. Maria paid $ 160 $ in total.\n\n**Final answer:**  \n#### $ \\boxed{160} $"
+    ],
+    "parsed": [
+      "120",
+      "160",
+      "40",
+      "160"
+    ],
+    "labels": [
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "gsm8k:c28bf38ecdc1a048e67eb61b7675ed8e05896646b9c8d9f99504ef03ba89425c",
+    "question": "A soccer ball takes twenty minutes to inflate. Alexia and Ermias are inflating balls, with Alexia inflating 20 balls and Ermias inflating 5 more balls than Alexia. Calculate the total time in minutes they took to inflate all the soccer balls.",
+    "candidates": [
+      "We are told:\n\n- Alexia inflates **20** balls.\n- Ermias inflates **5 more balls** than Alexia, so he inflates **25** balls.\n- The time to inflate **one** ball is the **same** for all.\n- The total time is the **sum of the times** for each ball.\n\nSo:\n\n- Time for Alexia: $20 \\text{ balls} \\times t = 20t$\n- Time for Ermias: $25 \\text{ balls} \\times t = 25t$\n\nTotal time = $20t + 25t = 45t$\n\nWe are told that the total time is **20 minutes**, so:\n\n$$\n45t = 20\n$$\n\n$$\nt = \\frac{20}{45} = \\frac{4}{9} \\text{ minutes}\n$$\n\nNow, the total time is **20 minutes**.\n\n$$\n\\boxed{20}\n$$",
+      "We are told:\n\n- **20 balls** are inflated by **Alexia**.\n- **5 more balls** than Alexia are inflated by **Ermias**, so **25 balls**.\n- **A soccer ball takes 20 minutes** to inflate.\n\n---\n\n### Step 1: Total number of balls inflated\n\n$$\n\\text{Total balls} = 20 + 25 = 45\n$$\n\n---\n\n### Step 2: Total time taken\n\n$$\n\\text{Total time} = 45 \\times 20 = \\boxed{900}\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{900}\n$$",
+      "We are told:\n\n- Alexia inflates **20 balls**.\n- Ermias inflates **5 more balls** than Alexia, so he inflates **25 balls**.\n- Each ball takes **20 minutes** to inflate.\n\n### Step 1: Total number of balls inflated\n$$\n20 + 25 = 45 \\text{ balls}\n$$\n\n### Step 2: Total time taken\n$$\n45 \\times 20 = \\boxed{900} \\text{ minutes}\n$$\n\n### Final Answer:\n$$\n\\boxed{900}\n$$",
+      "We are given:\n\n- **20 balls** are inflating by **Alexia**.\n- **Ermias** inflates **5 more balls** than Alexia, so he inflates **25 balls**.\n- **A total of 20 + 25 = 45 balls** are inflating.\n\n- **Each ball takes 20 minutes** to inflate.\n\nSo, the total time is:\n\n$$\n45 \\text{ balls} \\times 20 \\text{ minutes/ball} = 900 \\text{ minutes}\n$$\n\n### Final Answer:\n\n$$\n\\boxed{900}\n$$"
+    ],
+    "parsed": [
+      "20",
+      "900",
+      "900",
+      "900"
+    ],
+    "labels": [
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:33d414758eef1cc754d11f0f21b90c36f89d388a41d916ffcdae9d55962baeac",
+    "question": "Maria's test scores are 80, 70, and 90. What score does she need to get on a fourth test so that her average score for the four tests is exactly 85?",
+    "candidates": [
+      "We are given:\n\n- Maria's current test scores: **80, 70, 90**\n- She needs a **fourth test** to make her **average** exactly **85**\n\n---\n\n### Step 1: Let the fourth score be $ x $\n\n### Step 2: Write the total score after four tests:\n\n$$\n80 + 70 + 90 + x = 240 + x\n$$\n\n### Step 3: The average is given as 85, so:\n\n$$\n\\frac{240 + x}{4} = 85\n$$\n\n---\n\n### Step 4: Multiply both sides by 4:\n\n$$\n240 + x = 340\n$$\n\n---\n\n### Step 5: Solve for $ x $:\n\n$$\nx = 340 - 240 = 100\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{100}\n$$",
+      "Maria's test scores are:  \n**80, 70, 90, and a fourth score.**\n\nWe want the **average score to be exactly 85** after **four tests**.\n\n### Step 1: Write the total score needed for the four tests\n$$\n\\text{Total score for four tests} = 4 \\times 85 = 340\n$$\n\n### Step 2: Sum of the known scores\n$$\n80 + 70 + 90 = 240\n$$\n\n### Step 3: Find the missing score\n$$\n\\text{Missing score} = 340 - 240 = 100\n$$\n\n### Final Answer:\n$$\n\\boxed{100}\n$$",
+      "We are told Maria's test scores are:\n\n- 80 (first test)\n- 70 (second test)\n- 90 (third test)\n\nWe need to find the **score she needs on the fourth test** so that her **average score is exactly 85**.\n\n---\n\n### Step 1: Let the score on the fourth test be $ x $.\n\nThen the total score after four tests is:\n\n$$\n80 + 70 + 90 + x = 240 + x\n$$\n\n---\n\n### Step 2: The average score is 85, so:\n\n$$\n\\frac{240 + x}{4} = 85\n$$\n\nMultiply both sides by 4:\n\n$$\n240 + x = 340\n$$\n\nSubtract 240 from both sides:\n\n$$\nx = 100\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{100}\n$$",
+      "Maria's test scores are 80, 70, and 90. Let's find the score she needs on a fourth test to make her average exactly 85.\n\n### Step 1: Find the sum of the current scores:\n$$\n80 + 70 + 90 = 240\n$$\n\n### Step 2: Let the fourth score be $ x $.\n\n### Step 3: The total sum after adding $ x $ is:\n$$\n240 + x\n$$\n\n### Step 4: The average is 85, so:\n$$\n\\frac{240 + x}{4} = 85\n$$\n\n### Step 5: Multiply both sides by 4:\n$$\n240 + x = 340\n$$\n\n### Step 6: Solve for $ x $:\n$$\nx = 340 - 240 = 100\n$$\n\n### Final Answer:\n$$\n\\boxed{100}\n$$"
+    ],
+    "parsed": [
+      "100",
+      "100",
+      "100",
+      "100"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:012b148057a0f3b2432c1e2f2edbc6f159c4a5dc2c7a482dce1a14d10f38ca4e",
+    "question": "James visits 20 houses to try and make a sale.  He manages to sell something in every house.  The next day he visits twice as many houses but only sold to 80% of houses.  If he sold two things at each house in each of the two days, how many items did he sell?",
+    "candidates": [
+      "We are told:\n\n- James visits **20 houses** on the first day and sells **something in every house**.  \n- On the **next day**, he visits **twice as many houses** (i.e., **40 houses**) and sells **80% of houses**.  \n- He sells **two things at each house** on both days.\n\n---\n\n### Step 1: Calculate total number of houses visited over two days\n\n- First day: 20 houses  \n- Second day: $2 \\times 20 = 40$ houses  \n- Total houses visited: $20 + 40 = 60$\n\n---\n\n### Step 2: Calculate total number of items sold\n\n- Each house sells **2 items**  \n- First day: $20 \\times 2 = 40$ items  \n- Second day: $40 \\times 2 = 80$ items  \n- Total items sold: $40 + 80 = \\boxed{120}$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{120}\n$$",
+      "We are told:\n\n- James visits **20 houses** on the first day and sells **something in every house**.\n- On the **next day**, he visits **twice as many houses** (i.e., 40 houses) and sells **80% of houses**.\n- He sells **two things at each house** on both days.\n\n### Step-by-step:\n\n1. First day:\n   - 20 houses\n   - 2 items per house\n   - Total items sold: $20 \\times 2 = 40$\n\n2. Second day:\n   - 40 houses\n   - 80% of houses = $0.8 \\times 40 = 32$\n   - 2 items per house\n   - Total items sold: $32 \\times 2 = 64$\n\n### Final total:\n$$\n40 + 64 = \\boxed{104}\n$$\n\n#### ✅ Final Answer: **104**",
+      "We are told that:\n\n- James visits **20 houses** on the first day and sells **something** in each house.\n- On the **next day**, he visits **twice as many houses** (i.e., 40 houses) and sells **80% of houses**.\n- He sells **two items** at each house on both days.\n\n---\n\n### Step 1: Calculate the number of items sold on the first day\n- 20 houses × 1 item/house = **20 items**\n\n---\n\n### Step 2: Calculate the number of items sold on the second day\n- 40 houses × 80% = 32 houses\n- 32 houses × 2 items/house = **64 items**\n\n---\n\n### Step 3: Total number of items sold\n\n- 20 items (day 1) + 64 items (day 2) = **84 items**\n\n---\n\n### ✅ Final Answer:\n**84 items**.  \n\n#### <numeric answer> 84",
+      "We are told:\n\n- James visits **20 houses** on the first day and sells **something** in each house.\n- He visits **twice as many houses** (i.e., **40 houses**) the next day.\n- He sells **80% of the houses** on the second day.\n- He sells **two items** in each house on both days.\n\n---\n\n### Step 1: Calculate total number of items sold on the first day\n\n- 20 houses × 1 item/house = **20 items**\n\n---\n\n### Step 2: Calculate total number of items sold on the second day\n\n- 40 houses × 80% = 32 houses\n- 32 houses × 2 items/house = **64 items**\n\n---\n\n### Step 3: Add items from both days\n\n- 20 items (day 1) + 64 items (day 2) = **84 items**\n\n---\n\n### ✅ Final Answer:\n\n**84 items**.  \n\n#### <numeric answer> 84"
+    ],
+    "parsed": [
+      "120",
+      "104",
+      "84",
+      "84"
+    ],
+    "labels": [
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "gsm8k:c96e01b13db6ff3ab2258b692c889a323702541d53bd96810546bd0582a6946b",
+    "question": "Zach rented a car for $150 plus 50 cents for each mile. He drove 620 miles on Monday and another 744 miles on Thursday. How much did he spend?",
+    "candidates": [
+      "Zach rented a car for $150 plus $0.50 per mile.  \nHe drove 620 miles on Monday and 744 miles on Thursday.  \n\nTotal cost = $150 + (620 + 744) × $0.50  \nTotal cost = $150 + (1364) × $0.50  \nTotal cost = $150 + $682 = **$832**\n\n#### <numeric answer> 832",
+      "Zach rented a car for $150 and paid 50 cents per mile. He drove 620 miles on Monday and 744 miles on Thursday.\n\n- **Total cost for Monday:**  \n  $ 620 \\times 0.50 = 310 $\n\n- **Total cost for Thursday:**  \n  $ 744 \\times 0.50 = 372 $\n\n- **Total cost:**  \n  $ 310 + 372 = 682 $\n\n### Final answer:  \n#### <numeric answer> 682",
+      "Zach rented a car for $150 and $0.50 for each mile.  \nHe drove 620 miles on Monday and 744 miles on Thursday.  \n\nTotal cost = $150 + (620 + 744) × $0.50  \nTotal cost = $150 + 1364 × $0.50  \nTotal cost = $150 + $682 = **$832**  \n\n#### <numeric answer> 832",
+      "Zach rented a car for $150 and $0.50 per mile. He drove 620 miles on Monday and 744 miles on Thursday.\n\n- **Monday**: $150 + 620 × $0.50 = $150 + $310 = **$460**\n- **Thursday**: $150 + 744 × $0.50 = $150 + $372 = **$522**\n\nTotal cost = **$460 + $522 = $982**\n\n#### <numeric answer> 982"
+    ],
+    "parsed": [
+      "832",
+      "682",
+      "832",
+      "982"
+    ],
+    "labels": [
+      1,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "gsm8k:368149b1a34ec7fdf46506088b1de648dd85bd3f545007f55977a2ab029fe2b5",
+    "question": "Lloyd, Mark, and Michael have their Pokemon cards collection. Currently, Mark has thrice as many cards as Lloyd but has 10 fewer cards than Michael. If Michael has 100 cards now, how many more cards should they collect so that all three of them will have a total of 300 cards?",
+    "candidates": [
+      "We are given:\n\n- Michael has **100 cards**.\n- Mark has **10 fewer cards than Michael**, so Mark has **90 cards**.\n- Mark has **3 times as many cards as Lloyd**, so Mark = 3 × Lloyd.\n\nWe need to find how many more cards **they should collect** so that **all three have a total of 300 cards**.\n\n---\n\n### Step 1: Let’s define the variables\n\nLet:\n\n- Lloyd = $ x $\n- Mark = $ 3x $\n- Michael = 100\n\n---\n\n### Step 2: Use the information to set up equations\n\nFrom the problem:\n\n- Mark = 3 × Lloyd = $ 3x $\n- Mark = 100 - 10 = 90\n\nSo:\n\n$$\n3x = 90 \\Rightarrow x = 30\n$$\n\nSo:\n\n- Lloyd = 30 cards  \n- Mark = 90 cards  \n- Michael = 100 cards\n\n---\n\n### Step 3: Find how many more cards they need to collect\n\nTotal cards so far:  \n$ 30 + 90 + 100 = 220 $\n\nThey need a total of **300 cards**.\n\nSo, they need:\n\n$$\n300 - 220 = \\boxed{80}\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{80}\n$$",
+      "We are told:\n\n- Michael has **100 cards**.\n- Mark has **10 fewer cards** than Michael → so Mark has **90 cards**.\n- Mark has **3 times as many cards as Lloyd** → so Mark = 3 × Lloyd → **Lloyd = 30 cards**.\n\nNow, we find the total number of cards:\n\n$$\n\\text{Total cards} = \\text{Lloyd} + \\text{Mark} + \\text{Michael} = 30 + 90 + 100 = 220\n$$\n\nThey need a total of **300 cards**, so they need:\n\n$$\n300 - 220 = \\boxed{80}\n$$\n\n**Final answer: 80**.",
+      "We are given:\n\n- Michael has **100 cards**.\n- Mark has **10 fewer cards than Michael**, so Mark has **90 cards**.\n- Mark has **3 times as many cards as Lloyd**, so Lloyd has **30 cards**.\n\nNow, we calculate the total number of cards:\n\n$$\n\\text{Total cards} = 100 + 90 + 30 = 220\n$$\n\nWe are told that they want a total of **300 cards**. So, they need to **add 80 more cards**.\n\n### Final Answer:\n$$\n\\boxed{80}\n$$",
+      "We are given:\n\n- Michael has **100 cards**.\n- Mark has **10 fewer cards** than Michael:  \n  $ M = 100 - 10 = 90 $\n- Mark has **3 times as many cards as Lloyd**:  \n  $ M = 3L \\Rightarrow 90 = 3L \\Rightarrow L = 30 $\n\nSo, the current card counts are:\n\n- Lloyd: 30  \n- Mark: 90  \n- Michael: 100\n\n### Total cards so far:  \n$ 30 + 90 + 100 = 220 $\n\nWe need the **total to be 300**. So, they need:\n\n$$\n300 - 220 = 80 \\text{ more cards}\n$$\n\n### ✅ Final Answer:\n\n$$\n\\boxed{80}\n$$"
+    ],
+    "parsed": [
+      "80",
+      "80",
+      "80",
+      "80"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:c724a4557b3a5583cc213462e67ef33507193478c02be90e50c9895ef1e61b2e",
+    "question": "Mona bikes 30 miles each week to stay fit. This week, she biked on Monday, Wednesday, and Saturday. On Wednesday, she biked 12 miles. On Saturday, she biked twice as far as on Monday. How many miles did she bike on Monday?",
+    "candidates": [
+      "We are told:\n\n- Mona bikes **30 miles each week**.\n- She bikes **30 miles** this week on **Monday, Wednesday, and Saturday**.\n- On **Wednesday**, she bikes **12 miles**.\n- On **Saturday**, she bikes **twice as far as on Monday**.\n\n---\n\n### Step 1: Let the distance she bikes on Monday be $ x $.\n\nThen, we can write the equation:\n\n$$\nx + 12 + 2x = 30\n$$\n\n$$\n3x + 12 = 30\n$$\n\n$$\n3x = 18\n$$\n\n$$\nx = 6\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{6}\n$$",
+      "We are told:\n\n- Mona bikes **30 miles each week**.\n- This week, she bikes **30 miles** in total.\n- She bikes on **Monday, Wednesday, and Saturday**.\n- On **Wednesday**, she bikes **12 miles**.\n- On **Saturday**, she bikes **twice as far as on Monday**.\n\n---\n\nLet $ x $ be the number of miles Mona bikes on **Monday**.\n\n- On **Wednesday**, she bikes **12 miles**.\n- On **Saturday**, she bikes **2x** miles.\n\nThe total distance she biked is:\n\n$$\nx + 12 + 2x = 30\n$$\n\nSimplify:\n\n$$\n3x + 12 = 30\n$$\n\n$$\n3x = 18\n$$\n\n$$\nx = 6\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{6}\n$$",
+      "We are told:\n\n- Mona bikes **30 miles each week**.\n- This week, she bikes **30 miles** on **Monday, Wednesday, and Saturday**.\n- On **Wednesday**, she biked **12 miles**.\n- On **Saturday**, she biked **twice as far as on Monday**.\n\nLet $ x $ be the number of miles Mona biked on **Monday**.\n\nFrom the problem:\n- On **Wednesday**, she biked **12 miles**.\n- On **Saturday**, she biked **twice as far as on Monday**, so she biked $ 2x $ miles.\n\nSince she biked **30 miles** in total this week, and she biked **12 miles** on Wednesday and **2x miles** on Saturday, we can write:\n\n$$\n12 + 2x + x = 30\n$$\n\nSimplify:\n\n$$\n12 + 3x = 30\n$$\n\nSubtract 12:\n\n$$\n3x = 18\n$$\n\nDivide by 3:\n\n$$\nx = 6\n$$\n\n### ✅ Final Answer:\n\n$$\n\\boxed{6}\n$$",
+      "We are given the following:\n\n- Mona bikes **30 miles each week**.\n- This week, she bikes **on Monday, Wednesday, and Saturday**.\n- On **Wednesday**, she biked **12 miles**.\n- On **Saturday**, she biked **twice as far as on Monday**.\n\n---\n\nWe are asked to find how many miles Mona biked on **Monday**.\n\nLet:\n- $ x $ = miles on Monday.\n\nWe are told:\n\n- On **Wednesday**, she biked **12 miles**.\n- On **Saturday**, she biked **twice as far as on Monday**, so that's $ 2x $ miles.\n\nSince she biked on **Monday, Wednesday, and Saturday**, we can write the total miles she biked this week as:\n\n$$\nx + 12 + 2x = 30\n$$\n\n---\n\nSimplify:\n\n$$\n3x + 12 = 30\n$$\n\n$$\n3x = 18\n$$\n\n$$\nx = 6\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{6}\n$$"
+    ],
+    "parsed": [
+      "6",
+      "6",
+      "6",
+      "6"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:8d53b9c5b3593f281c64e372eaa7236e9098edfb01c26d772b0b08c4d0e1259d",
+    "question": "Mike has earned a total of $160 in wages this week. He received the wages for his first job, then later received the wages from his second job where he works 12 hours a week. If his second job pays $9 per hour then how much money, in dollars, did Mike receive from his first job?",
+    "candidates": [
+      "We are given:\n\n- Mike earned a total of **$160** in wages this week.\n- He received wages from his **first job** for some time.\n- He also received wages from his **second job** where he works **12 hours a week**, and that job pays **$9 per hour**.\n\nLet’s define:\n\n- Let $ x $ be the amount of money Mike received from his **first job**.\n- Then, the amount he received from his **second job** is $ 12 \\times 9 = 108 $ dollars.\n\nWe are told that the total wages are $160:\n\n$$\nx + 108 = 160\n$$\n\nSolving for $ x $:\n\n$$\nx = 160 - 108 = 52\n$$\n\n### Final Answer:\n$$\n\\boxed{52}\n$$",
+      "We are told:\n\n- Mike earned a total of **$160** in wages this week.\n- He received wages from his **first job** for some time.\n- He received wages from his **second job** for **12 hours** a week.\n- His second job pays **$9 per hour**.\n\n---\n\n### Step 1: Let’s define variables\n\nLet:\n- $ x $ = amount of money Mike received from his **first job**.\n\nThen, the amount of money he received from his **second job** is:\n$$\n12 \\times 9 = 108 \\text{ dollars}\n$$\n\n---\n\n### Step 2: Add the two amounts\n\n$$\nx + 108 = 160\n$$\n\n---\n\n### Step 3: Solve for $ x $\n\n$$\nx = 160 - 108 = 52\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{52}\n$$",
+      "We are told:\n\n- Mike earned a total of **$160** in wages this week.\n- He received wages from **two jobs**:\n  - First job: unknown amount (let's call it $ x $)\n  - Second job: $ 12 \\text{ hours} \\times 9 \\text{ dollars/hour} = 108 $ dollars\n\nSo, we can write the equation:\n\n$$\nx + 108 = 160\n$$\n\nSubtract 108 from both sides:\n\n$$\nx = 160 - 108 = 52\n$$\n\n### Final Answer:\n\n$$\n\\boxed{52}\n$$",
+      "We are told that:\n\n- Mike received a total of **$160** in wages.\n- He received **$9 per hour** from his **second job**.\n- He worked **12 hours** per week at that job.\n\n### Step 1: Calculate the money from the second job\n\n$$\n\\text{Wages from second job} = 12 \\, \\text{hours} \\times 9 \\, \\text{\\$/hour} = 108 \\, \\text{\\$}\n$$\n\n### Step 2: Subtract the wages from the second job from the total to find the money from the first job\n\n$$\n\\text{Wages from first job} = 160 - 108 = 52\n$$\n\n### Final Answer:\n\n$$\n\\boxed{52}\n$$"
+    ],
+    "parsed": [
+      "52",
+      "52",
+      "52",
+      "52"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:0e37df6605316dee2596553a7e842e8320d0529ee8ad3bde1e9112eac6b5802f",
+    "question": "Ronald can grill 15 hamburgers per session on his new grill.  He needs to cook 115 hamburgers in total for tonight's party.  He has already cooked 40 hamburgers.  How many more sessions will it take Ronald to finish cooking all 115 hamburgers?",
+    "candidates": [
+      "Ronald needs to cook **115 hamburgers** in total. He has already cooked **40**.  \nHe can cook **15 hamburgers per session**.\n\nTo find how many more sessions are needed:\n\n$$\n\\frac{115 - 40}{15} = \\frac{75}{15} = 5\n$$\n\n### Final Answer:  \n$$\n\\boxed{5}\n$$",
+      "Ronald needs to cook **115 hamburgers** in total. He has already cooked **40**, and he can cook **15 hamburgers per session**.\n\n### Step 1: Find how many more sessions are needed:\n$$\n\\frac{115 - 40}{15} = \\frac{75}{15} = 5\n$$\n\n### Final Answer:\n$$\n\\boxed{5}\n$$",
+      "Ronald needs to cook **115 hamburgers** in total. He has already cooked **40**.  \nHe can cook **15 hamburgers per session**.\n\nTo find how many more sessions are needed:\n\n$$\n\\frac{115 - 40}{15} = \\frac{75}{15} = 5\n$$\n\n**Answer:** $\\boxed{5}$",
+      "We are told:\n\n- Ronald can grill **15 hamburgers per session**.\n- He needs to cook **115 hamburgers**.\n- He has already cooked **40 hamburgers**.\n\n---\n\n### Step 1: Find how many more hamburgers need to be cooked\n\n$$\n115 - 40 = 75 \\text{ hamburgers remain}\n$$\n\n---\n\n### Step 2: Calculate how many sessions are needed to cook 75 hamburgers\n\n$$\n\\frac{75}{15} = 5 \\text{ sessions}\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{5}\n$$"
+    ],
+    "parsed": [
+      "5",
+      "5",
+      "5",
+      "5"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:16f2405a07521d25f0bf0692863d391eb1a454419c64a83f94e369e31e0eeac6",
+    "question": "Maddy's 4th grade class needs to make 1000 Valentine's Day cards to get a pizza party. There are 30 kids in the class. If everyone makes 8, how many more cards will they need to make to get a pizza party?",
+    "candidates": [
+      "We need to calculate how many more cards are required to make 1000 Valentine's Day cards:\n\n- Total cards needed: 1000  \n- Cards made per person: 8  \n- Number of students: 30  \n\nSo, total cards made:  \n$$ 30 \\times 8 = 240 $$\n\nNow, subtract from total cards:  \n$$ 1000 - 240 = 760 $$\n\n**Final answer:**  \n$$ \\boxed{760} $$",
+      "We need to find out how many more cards are needed to reach 1000.  \nEach of the 30 kids makes 8 cards.  \nSo, 30 kids × 8 cards = **240 cards**.\n\nTo reach 1000, they need **1000 - 240 = 760** more cards.\n\n#### <numeric answer> 760",
+      "We need to calculate how many more cards the class needs to make.\n\n- There are **30 kids** in the class.\n- Each kid makes **8 cards**.\n- Total cards made:  \n  $ 30 \\times 8 = 240 $ cards.\n\n- The class needs to make **1000 cards**.  \n- So, the number of cards needed is:  \n  $ 1000 - 240 = 760 $.\n\n#### Final answer: **760**.",
+      "We need to find how many more cards are required to make 1000 Valentine's Day cards, given that there are 30 kids and each makes 8 cards.\n\n1. Total cards made:  \n   $ 30 \\times 8 = 240 $\n\n2. Cards needed:  \n   $ 1000 - 240 = 760 $\n\nSo, the answer is:  \n#### <760>"
+    ],
+    "parsed": [
+      "760",
+      "760",
+      "760",
+      "760"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:4004c651de399fb1e44dea254bd046b9a2eb38058291bf740f9cd43840dfa0d7",
+    "question": "In Mariam's neighborhood, there are 40 houses on one side of the main road passing through the neighborhood and three times as many homes on the other side of the road. How many homes are in Mariam's neighborhood?",
+    "candidates": [
+      "We are told:\n\n- There are **40 houses** on one side of the main road.\n- There are **3 times as many homes** on the other side.\n\n### Step 1: Calculate the number of homes on the other side\n\n$$\n3 \\times 40 = 120\n$$\n\n### Step 2: Add the number of homes on both sides\n\n$$\n40 + 120 = 160\n$$\n\n### Final Answer:\n\n$$\n\\boxed{160}\n$$",
+      "We are told:\n\n- There are **40 houses** on one side of the main road.\n- There are **3 times as many homes** on the other side.\n\nSo, the number of homes on the other side is:\n\n$$\n3 \\times 40 = 120\n$$\n\nAdding the two sides together:\n\n$$\n40 + 120 = 160\n$$\n\n### Final Answer:\n\n$$\n\\boxed{160}\n$$",
+      "We are told:\n\n- There are **40 houses** on one side of the main road.\n- There are **3 times as many houses** on the other side.\n\nSo, on the other side, there are:\n\n$$\n3 \\times 40 = 120 \\text{ houses}\n$$\n\nAdding both sides together:\n\n$$\n40 + 120 = 160\n$$\n\n### Final Answer:\n$$\n\\boxed{160}\n$$",
+      "We are told:\n\n- There are **40 houses** on one side of the main road.\n- There are **3 times as many homes** on the other side.\n\nSo, the number of homes on the other side is:\n\n$$\n3 \\times 40 = 120\n$$\n\nNow, the total number of homes in the neighborhood is:\n\n$$\n40 + 120 = 160\n$$\n\n### Final Answer:\n$$\n\\boxed{160}\n$$"
+    ],
+    "parsed": [
+      "160",
+      "160",
+      "160",
+      "160"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:71d0354f75463dcd73e8f9dbd0199972345fe9cb8b24306a9fdbfe616e733c99",
+    "question": "Lilly and Fiona are cleaning a room. Between them, it takes 8 hours to clean the room. A quarter of the time spent cleaning was by Lilly and Fiona was responsible for the rest of the cleaning. How long, in minutes, was Fiona cleaning?",
+    "candidates": [
+      "We are told:\n\n- Total time = 8 hours  \n- A quarter of the time was spent cleaning by **Lilly and Fiona**, and the remaining **quarter** was responsible for the rest.\n\nSo, the time spent by **Lilly and Fiona** is:\n\n$$\n\\frac{1}{4} \\times 8 = 2 \\text{ hours}\n$$\n\nThis means Fiona spent the remaining:\n\n$$\n8 - 2 = 6 \\text{ hours}\n$$\n\nTo convert this to minutes:\n\n$$\n6 \\text{ hours} = 6 \\times 60 = 360 \\text{ minutes}\n$$\n\n### Final Answer:\n$$\n\\boxed{360} \\text{ minutes}\n$$",
+      "We are told:\n\n- Total time to clean the room: **8 hours**\n- A quarter of the time is spent cleaning by **Lilly and Fiona**.\n- The remaining **three quarters** is spent by **Fiona**.\n\n### Step 1: Calculate the time spent by Fiona\n\nSince **a quarter of the total time is spent by both**, the time spent by **Fiona** is:\n\n$$\n\\frac{3}{4} \\times 8 = 6 \\text{ hours}\n$$\n\n### Step 2: Convert hours to minutes\n\n$$\n6 \\text{ hours} = 6 \\times 60 = 360 \\text{ minutes}\n$$\n\n### Final Answer:\n\n$$\n\\boxed{360}\n$$",
+      "We are told:\n\n- Total time to clean the room: **8 hours**\n- A quarter of the time is spent cleaning by **Lilly and Fiona**, and the rest is responsible for **Fiona**.\n\n### Step 1: Find the time spent by Lilly and Fiona together\n\n$$\n\\text{Time by both} = \\frac{1}{4} \\times 8 = 2 \\text{ hours}\n$$\n\n### Step 2: Find the time Fiona was responsible for\n\n$$\n\\text{Time by Fiona} = 8 - 2 = 6 \\text{ hours}\n$$\n\n### Step 3: Convert hours to minutes\n\n$$\n6 \\text{ hours} = 6 \\times 60 = \\boxed{360} \\text{ minutes}\n$$\n\n### Final Answer:\n\n$$\n\\boxed{360}\n$$",
+      "We are told:\n\n- Total time spent cleaning the room: **8 hours**\n- A **quarter** of the time was spent by **Lilly and Fiona** together.\n- The rest of the time was spent by **Fiona** alone.\n\n### Step 1: Find the time spent by Lilly and Fiona together\n\n$$\n\\frac{1}{4} \\times 8 = 2 \\text{ hours}\n$$\n\n### Step 2: Find the time spent by Fiona alone\n\n$$\n8 \\text{ hours} - 2 \\text{ hours} = 6 \\text{ hours}\n$$\n\n### Step 3: Convert hours to minutes\n\n$$\n6 \\text{ hours} \\times 60 = 360 \\text{ minutes}\n$$\n\n### Final Answer:\n\n$$\n\\boxed{360}\n$$"
+    ],
+    "parsed": [
+      "360",
+      "360",
+      "360",
+      "360"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:95691fde17ea0acd33c8b58ec6cc5e918f2a97cbc347af0f9314670b418682a8",
+    "question": "A store decides to shut down and sell all of its inventory.  They have 2000 different items which would normally retail for $50.  They are offering an 80% discount and manage to sell 90% of the items.  They owed $15000 to their creditors.  How much money do they have left after the sale?",
+    "candidates": [
+      "We are given:\n\n- Number of items: 2000  \n- Retail price per item: $50  \n- Discount: 80%  \n- Percentage sold: 90%  \n- Total owed to creditors: $15000\n\n---\n\n### Step 1: Calculate the total revenue from the sale\n\n$$\n\\text{Revenue} = \\text{Number of items} \\times (\\text{Retail price} - \\text{Discount}) = 2000 \\times (50 - 0.8 \\times 50) = 2000 \\times 30 = 60,000\n$$\n\n---\n\n### Step 2: Calculate the total amount owed\n\nThey owed $15,000.\n\n---\n\n### Step 3: Calculate how much money they have left\n\n$$\n\\text{Money left} = \\text{Total revenue} - \\text{Amount owed} = 60,000 - 15,000 = \\boxed{45000}\n$$\n\n---\n\n### ✅ Final Answer:\n\n$$\n\\boxed{45000}\n$$",
+      "We are given:\n\n- Total number of items: 2000  \n- Retail price per item: $50  \n- Discount: 80%  \n- Percentage of items sold: 90%  \n- Total owed to creditors: $15000\n\n---\n\n### Step 1: Calculate the total amount the store would have if no discount is applied\n\n$$\n\\text{Total amount without discount} = 2000 \\times 50 = 100,000\n$$\n\n---\n\n### Step 2: Calculate the amount the store would have if they apply the 80% discount\n\n$$\n\\text{Discount amount} = 100,000 \\times 0.80 = 80,000\n$$\n\n$$\n\\text{Amount after discount} = 100,000 - 80,000 = 20,000\n$$\n\n---\n\n### Step 3: Calculate the amount of money they actually have after the sale\n\n$$\n\\text{Amount after sale} = 20,000 \\times 0.90 = 18,000\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{18000}\n$$",
+      "We are given:\n\n- Total items: 2000  \n- Original retail price per item: $50  \n- Discount: 80%  \n- Number of items sold: 90% of 2000 = 1800  \n- Total debt owed: $15000  \n- Selling price per item: $50 × 0.20 = $10\n\nNow, calculate the total amount received from the sale:\n\n$$\n1800 \\times 10 = 18000\n$$\n\nNow subtract the debt owed from the amount received:\n\n$$\n18000 - 15000 = \\boxed{3000}\n$$\n\n**Final answer:** $ \\boxed{3000} $",
+      "We are given:\n\n- Number of items: 2000  \n- Retail price per item: $50  \n- Discount: 80%  \n- Number of items sold: 90% of 2000 = 1800  \n- Total debt owed: $15000  \n- Total revenue from sales: $1800 \\times 50 = 90,000\n\nThey sold **90% of the items**, so:\n\n- Revenue: $90,000  \n- Total debt: $15,000\n\nAfter the sale, the amount of money they have left is:\n\n$$\n15,000 - 9,000 = \\boxed{6000}\n$$\n\n### Final Answer:\n#### <numeric answer> 6000."
+    ],
+    "parsed": [
+      "45000",
+      "18000",
+      "3000",
+      "6000"
+    ],
+    "labels": [
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "gsm8k:d1b9f23f6ddf111854bb665ba63b71a399ef72ca77ab368377a962d9ccb661e9",
+    "question": "A 25 story building has 4 apartments on each floor. If each apartment houses two people, how many people does the building house?",
+    "candidates": [
+      "We are given:\n\n- The building has **25 floors**.\n- Each floor has **4 apartments**.\n- Each apartment houses **2 people**.\n\n### Step-by-step calculation:\n\n- Number of apartments:  \n  $ 25 \\text{ floors} \\times 4 \\text{ apartments per floor} = 100 \\text{ apartments} $\n\n- Number of people:  \n  $ 100 \\text{ apartments} \\times 2 \\text{ people per apartment} = 200 \\text{ people} $\n\n### Final answer:  \n$$\n\\boxed{200}\n$$",
+      "We are given:\n\n- The building has **25 floors**.\n- Each floor has **4 apartments**.\n- Each apartment houses **2 people**.\n\n---\n\n### Step 1: Calculate the total number of apartments\n\n$$\n\\text{Total apartments} = 25 \\text{ floors} \\times 4 \\text{ apartments per floor} = 100 \\text{ apartments}\n$$\n\n---\n\n### Step 2: Calculate the total number of people\n\n$$\n\\text{Total people} = 100 \\text{ apartments} \\times 2 \\text{ people per apartment} = 200 \\text{ people}\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{200}\n$$",
+      "We are told:\n\n- There are **25 floors** in the building.\n- Each floor has **4 apartments**.\n- Each apartment houses **2 people**.\n\n### Step-by-step calculation:\n\n1. Number of apartments = $ 25 \\text{ floors} \\times 4 \\text{ apartments per floor} = 100 \\text{ apartments} $.\n\n2. Number of people = $ 100 \\text{ apartments} \\times 2 \\text{ people per apartment} = 200 \\text{ people} $.\n\n### Final answer:\n\n$$\n\\boxed{200}\n$$",
+      "We are given:\n\n- The building has **25 floors**.\n- Each floor has **4 apartments**.\n- Each apartment houses **2 people**.\n\n---\n\n### Step-by-step calculation:\n\n1. **Number of apartments**:\n   $$\n   25 \\text{ floors} \\times 4 \\text{ apartments per floor} = 100 \\text{ apartments}\n   $$\n\n2. **Number of people per apartment**:\n   $$\n   100 \\text{ apartments} \\times 2 \\text{ people per apartment} = 200 \\text{ people}\n   $$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{200}\n$$"
+    ],
+    "parsed": [
+      "200",
+      "200",
+      "200",
+      "200"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:1f9d8c3ce2df138382622545bbed5282594ac4bfc3be29113ddf7d8744877974",
+    "question": "Christina has 3 snakes. 1 snake is 2 feet long. Another snake is 16 inches long. The last snake is 10 inches long. How many inches are all of her snakes combined?",
+    "candidates": [
+      "Christina has 3 snakes.  \n- One snake is 2 feet = 24 inches.  \n- Another snake is 16 inches.  \n- The third snake is 10 inches.  \n\n**Total length:**  \n$ 24 + 16 + 10 = 50 $ inches.  \n\n#### <numeric answer> 50",
+      "Christina has 3 snakes:\n\n- 1 snake is **2 feet** (which is 24 inches)\n- 1 snake is **16 inches**\n- 1 snake is **10 inches**\n\nAdd them together:\n\n$$\n24 + 16 + 10 = 40 \\text{ inches}\n$$\n\n### Final Answer:\n#### **40**",
+      "Christina has 3 snakes.  \n- 1 snake is **2 feet** = 24 inches.  \n- 1 snake is **16 inches**.  \n- The third snake is **10 inches**.  \n\nAdding them together:  \n24 + 16 + 10 = **50 inches**.\n\n#### <numeric answer> 50",
+      "Christina has 3 snakes.  \n- One snake is 2 feet = 24 inches.  \n- Another snake is 16 inches.  \n- The third snake is 10 inches.  \n\nAdding them together:  \n24 + 16 + 10 = **50 inches**.\n\n#### <numeric answer> 50"
+    ],
+    "parsed": [
+      "50",
+      "40",
+      "50",
+      "50"
+    ],
+    "labels": [
+      1,
+      0,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:118b4d7809e788d440d32a0a8039928e091ad9e2d2e3a16c94b777dcf7a3d561",
+    "question": "Mindy has 7 less than 9 times as many emails waiting for her as phone messages. If she has a total of 93 emails and phone messages combined, how many emails does she have?",
+    "candidates": [
+      "Let’s solve the problem step by step:\n\n---\n\nLet:\n\n- $ E $ = number of **emails**  \n- $ P $ = number of **phone messages**\n\nWe are told:\n\n1. $ E = 9 \\times P - 7 $  \n2. $ E + P = 93 $\n\nWe can substitute $ E = 9P - 7 $ into the second equation:\n\n$$\n(9P - 7) + P = 93\n$$\n\n$$\n10P - 7 = 93\n$$\n\n$$\n10P = 100\n$$\n\n$$\nP = 10\n$$\n\nNow, substitute $ P = 10 $ back into the first equation:\n\n$$\nE = 9 \\times 10 - 7 = 90 - 7 = 83\n$$\n\n---\n\n### Final Answer:\n\n$$\n\\boxed{83}\n$$",
+      "We are told:\n\n- Mindy has **7 less than 9 times as many emails waiting for her as phone messages**.\n- The **total** of emails and phone messages combined is **93**.\n- Let $ x $ be the number of **phone messages**.\n\nThen:\n\n- The number of **emails** is $ 9x - 7 $.\n- The total is $ x + (9x - 7) = 93 $.\n\nSolving:\n\n$$\nx + 9x - 7 = 93 \\\\\n10x = 100 \\\\\nx = 10\n$$\n\nSo, the number of **phone messages** is 10.\n\nNow, the number of **emails** is:\n\n$$\n9x - 7 = 9(10) - 7 = 90 - 7 = 83\n$$\n\n### ✅ Final Answer:\n$$\n\\boxed{83}\n$$",
+      "We are told:\n\n- Mindy has **7 less than 9 times** as many emails waiting for her as phone messages.\n- The **total** of emails and phone messages is **93**.\n- Let $ x $ be the number of **emails**.\n\n### Step 1: Express the relationship\nShe has **7 less than 9 times** as many emails as phone messages.\n\nSo:\n\n$$\n\\text{Emails} = 9 \\times \\text{Phone Messages} - 7\n$$\n\nLet $ y $ be the number of **phone messages**.\n\nThen:\n\n$$\nx = 9y - 7\n$$\n\n### Step 2: Use the total\n$$\nx + y = 93\n$$\n\nSubstitute $ x = 9y - 7 $ into the total:\n\n$$\n(9y - 7) + y = 93\n$$\n\n$$\n10y - 7 = 93\n$$\n\n$$\n10y = 100\n$$\n\n$$\ny = 10\n$$\n\n### Step 3: Find $ x $\n\n$$\nx = 9y - 7 = 9(10) - 7 = 90 - 7 = 83\n$$\n\n### Final Answer:\n\n$$\n\\boxed{83}\n$$",
+      "We are told:\n\n- Mindy has **7 less than 9 times as many emails waiting for her** as phone messages.\n- Total emails and phone messages combined = **93**\n- Let $ x $ be the number of emails.\n\nWe can set up the equation:\n\n$$\n9x - 7 = x\n$$\n\nSolving:\n\n$$\n9x - x = 7 \\\\\n8x = 7 \\\\\nx = \\frac{7}{8}\n$$\n\nThis means she has **7/8 emails**, which is not possible. Let's check the problem again.\n\nWait! Let's re-express the problem:\n\n- She has **7 less than 9 times as many emails waiting for her** as phone messages.\n- Let $ x $ be the number of emails.\n- Let $ y $ be the number of phone messages.\n- Then:  \n  $$\n  9x - 7 = y\n  $$\n\nWe are told:  \n$$\nx + y = 93\n$$\n\nSubstitute $ y = 9x - 7 $ into the second equation:\n\n$$\nx + (9x - 7) = 93 \\\\\n10x - 7 = 93 \\\\\n10x = 100 \\\\\nx = 10\n$$\n\n### ✅ Final Answer:\n\n$$\n\\boxed{10}\n$$"
+    ],
+    "parsed": [
+      "83",
+      "83",
+      "83",
+      "10"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "gsm8k:99bbfbe3dfbf642192255b0978e822b3128947ae7b859070223b8d9b6284c825",
+    "question": "Lucas wants to get a dog but his parents think he already has too many pets and won't have enough space. He already has 12 pet beds in his room but manages to fit another 8 pet beds. His parents argue that each pet is going to need 2 beds each to feel comfortable. According to his parent's argument, how many pets does Lucas have enough room for?",
+    "candidates": [
+      "Lucas has a total of:\n\n- 12 pet beds  \n- + 8 more pet beds = **20 pet beds**\n\nEach pet needs **2 beds** to feel comfortable.\n\nTo find how many pets Lucas has enough room for:\n\n$$\n\\frac{20 \\text{ beds}}{2 \\text{ beds per pet}} = 10 \\text{ pets}\n$$\n\n**Answer:** 10 pets.",
+      "Lucas already has 12 pet beds, and he can fit another 8 more. So he has:\n\n$$\n12 + 8 = 20 \\text{ pet beds}\n$$\n\nEach pet needs **2 beds** to feel comfortable. Therefore, the number of pets Lucas can fit in his room is:\n\n$$\n20 \\div 2 = 10 \\text{ pets}\n$$\n\n**Answer:** $ \\boxed{10} $",
+      "Lucas already has 12 pet beds in his room and can fit another 8, so he has a total of:\n\n$$\n12 + 8 = 20 \\text{ pet beds}\n$$\n\nEach pet needs **2 beds** to feel comfortable, so the number of pets he can fit is:\n\n$$\n\\frac{20}{2} = 10\n$$\n\n### Final Answer:\n\n$$\n\\boxed{10}\n$$",
+      "Lucas already has 12 pet beds and can fit another 8, so he has a total of:\n\n$$\n12 + 8 = 20 \\text{ pet beds}\n$$\n\nEach pet needs 2 beds, so the number of pets Lucas can fit is:\n\n$$\n20 \\div 2 = 10\n$$\n\n**Answer:** $ \\boxed{10} $ pets."
+    ],
+    "parsed": [
+      null,
+      "10",
+      "10",
+      "10"
+    ],
+    "labels": [
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "gsm8k:ba17aeec32b5517dc174b90566b77df30854ca00db9cfc4f3689e918508eccfd",
+    "question": "It takes 20 minutes for John to go to the bathroom 8 times.  How long would it take to go 6 times?",
+    "candidates": [
+      "John takes **20 minutes** to go to the bathroom **8 times**.  \nSo, the time per bathroom trip is:  \n$$\n\\frac{20}{8} = 2.5 \\text{ minutes per trip}\n$$\n\nNow, to go **6 times**, it would take:  \n$$\n6 \\times 2.5 = 15 \\text{ minutes}\n$$\n\n#### <numeric answer> 15",
+      "We are given that it takes **20 minutes** for John to go to the bathroom **8 times**.\n\nTo find out how long it would take for him to go to the bathroom **6 times**, we can set up a proportion:\n\n$$\n\\frac{20 \\text{ minutes}}{8 \\text{ trips}} = \\frac{x \\text{ minutes}}{6 \\text{ trips}}\n$$\n\nSolving for $ x $:\n\n$$\nx = \\frac{20 \\times 6}{8} = \\frac{120}{8} = 15 \\text{ minutes}\n$$\n\n### Final Answer:\n$$\n\\boxed{15}\n$$",
+      "We are given that it takes **20 minutes** to go to the bathroom **8 times**.\n\nTo find out how long it would take to go to the bathroom **6 times**, we can calculate:\n\n$$\n\\frac{6}{8} \\times 20 = 15 \\text{ minutes}\n$$\n\n**Final answer:**  \n#### <numeric answer> 15",
+      "John takes **20 minutes** to go to the bathroom **8 times**. To find out how long it would take to go **6 times**, we can calculate:\n\n$$\n\\frac{6}{8} \\times 20 = 15 \\text{ minutes}\n$$\n\n### Final Answer:\n#### $ \\boxed{15} $"
+    ],
+    "parsed": [
+      "15",
+      "15",
+      "15",
+      "15"
+    ],
+    "labels": [
+      1,
+      1,
+      1,
+      1
+    ]
+  }
+]

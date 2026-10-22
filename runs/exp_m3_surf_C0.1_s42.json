@@ -1,0 +1,10 @@
+{
+  "run_id": "m3_surf_C0.1_s42",
+  "config": "m3_surf",
+  "spec": "vote+surf",
+  "dim": 15,
+  "C": 0.1,
+  "seed": 42,
+  "train_accuracy_pct": 86.8559,
+  "validation_accuracy_pct": 87.7193
+}

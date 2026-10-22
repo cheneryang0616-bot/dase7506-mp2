@@ -1,0 +1,10 @@
+{
+  "run_id": "m3_rel_surf_C0.01_s42",
+  "config": "m3_rel_surf",
+  "spec": "l2+rel+cos+vote+surf",
+  "dim": 2065,
+  "C": 0.01,
+  "seed": 42,
+  "train_accuracy_pct": 93.5857,
+  "validation_accuracy_pct": 90.9774
+}

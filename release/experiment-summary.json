@@ -1,0 +1,177 @@
+{
+  "historical_csv_logs": [
+    {
+      "path": "experiments.csv",
+      "fit_records": 125,
+      "unique_run_ids": 120,
+      "duplicate_run_ids": {
+        "m2_full_C0.01_s42": 2,
+        "rel_only_vote_C0.001_s42": 2,
+        "rel_only_vote_C0.002_s42": 3,
+        "rel_only_vote_C0.005_s42": 2
+      },
+      "fit_seconds_sum": 202.061,
+      "cost_scope": "Sum of logged fit durations, not end-to-end search wall time."
+    },
+    {
+      "path": "experiments_v1_unstandardized.csv",
+      "fit_records": 12,
+      "unique_run_ids": 12,
+      "duplicate_run_ids": {},
+      "fit_seconds_sum": 48.337,
+      "cost_scope": "Sum of logged fit durations, not end-to-end search wall time."
+    }
+  ],
+  "historical_standalone_fits": [
+    {
+      "path": "runs/exp_group_relvote.json",
+      "description": "Historical group loss with gradient discrepancy",
+      "fit_seconds": 18.619
+    },
+    {
+      "path": "runs/final_bundle_report.json",
+      "description": "Original final-model training",
+      "fit_seconds": 1.532
+    }
+  ],
+  "historical_logged_fit_records": 139,
+  "historical_fit_seconds_sum": 270.549,
+  "corrective_controls": {
+    "started_utc": "2026-10-22T14:11:24.980079+00:00",
+    "purpose": "Post-audit mathematical correction and symmetric feature controls",
+    "selection_policy": "These results do not reselect, refit, or replace the final release. The frozen C=0.002, seed=42 controls are diagnostic.",
+    "data_scope": "Only train/validation inputs and references; mechanism check uses validation inputs only",
+    "thread_limits": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1"
+    },
+    "python": "3.12.15 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:11:32) [Clang 20.1.8 ]",
+    "platform": "macOS-15.6-arm64-arm-64bit",
+    "historical_seed_note": "Historical group command omitted --seed; default was 42. All-zero full-batch Adam initialization is deterministic.",
+    "frozen_and_historical_sha256_before": {
+      "release/checkpoint/model_bundle/config.json": "913830e7eb6dfbba979be7b4e86a11782960a4a4a15e8b3f9b120b6c22a6bae3",
+      "release/checkpoint/model_bundle/linear.npz": "fcea0bd554d10c06f5fbc4f9057c859a97e5d4d5db14d8a8132e6a6ac86f1105",
+      "runs/exp_group_relvote.json": "acaf6fb0aae0e12f3215b0c1ad6f9540eb7e9cdf4e1ddb5a23a07559fdff0a92"
+    },
+    "source_sha256": {
+      "method/train_group.py": "451e4fa3e85eb2bbbf7ac6ed9b0397a59f8aabb9bd0d64c83dca7550dd8aee9a",
+      "method/train.py": "b586fee0352e24d6ad77e2c3f5b85e5c2ed96a50e6d1024cbc5fd7877b423a01",
+      "tools/test_group_gradient.py": "cae51ace0d5db4c6a120e70854ec309202db7a9aac8dac2d9aa6cac0efdd4694",
+      "tools/repair_controls.py": "c2e9283860b872e8677755109da3c3cd0edfbfba9fa6af5db50a620ac3195ebf"
+    },
+    "runs": [
+      {
+        "name": "gradient_test",
+        "argv": [
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/code/.venv/bin/python",
+          "tools/test_group_gradient.py"
+        ],
+        "returncode": 0,
+        "wall_seconds": 0.199654,
+        "log": "runs/corrections/gradient_test.log"
+      },
+      {
+        "name": "group_relvote_corrected",
+        "argv": [
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/code/.venv/bin/python",
+          "method/train_group.py",
+          "--config",
+          "rel_only_vote",
+          "--l2",
+          "0.001",
+          "--lr",
+          "0.05",
+          "--iters",
+          "1500",
+          "--seed",
+          "42",
+          "--bundle",
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/runs/corrections/bundles/group_relvote_corrected",
+          "--report",
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/runs/corrections/exp_group_relvote_corrected.json"
+        ],
+        "returncode": 0,
+        "wall_seconds": 23.598214,
+        "log": "runs/corrections/group_relvote_corrected.log"
+      },
+      {
+        "name": "rel_only_C0.002_s42",
+        "argv": [
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/code/.venv/bin/python",
+          "method/train.py",
+          "--config",
+          "rel_only",
+          "--C",
+          "0.002",
+          "--seed",
+          "42",
+          "--bundle",
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/runs/corrections/bundles/rel_only_C0.002_s42",
+          "--report",
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/runs/corrections/exp_rel_only_C0.002_s42.json"
+        ],
+        "returncode": 0,
+        "wall_seconds": 2.849553,
+        "log": "runs/corrections/rel_only_C0.002_s42.log"
+      },
+      {
+        "name": "vote_only_C0.002_s42",
+        "argv": [
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/code/.venv/bin/python",
+          "method/train.py",
+          "--config",
+          "m0_voteonly",
+          "--C",
+          "0.002",
+          "--seed",
+          "42",
+          "--bundle",
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/runs/corrections/bundles/vote_only_C0.002_s42",
+          "--report",
+          "/Users/zhuan/7506 Project2/DASE7506-MP2/runs/corrections/exp_vote_only_C0.002_s42.json"
+        ],
+        "returncode": 0,
+        "wall_seconds": 1.412493,
+        "log": "runs/corrections/vote_only_C0.002_s42.log"
+      }
+    ],
+    "frozen_and_historical_sha256_after": {
+      "release/checkpoint/model_bundle/config.json": "913830e7eb6dfbba979be7b4e86a11782960a4a4a15e8b3f9b120b6c22a6bae3",
+      "release/checkpoint/model_bundle/linear.npz": "fcea0bd554d10c06f5fbc4f9057c859a97e5d4d5db14d8a8132e6a6ac86f1105",
+      "runs/exp_group_relvote.json": "acaf6fb0aae0e12f3215b0c1ad6f9540eb7e9cdf4e1ddb5a23a07559fdff0a92"
+    },
+    "frozen_and_historical_unchanged": true,
+    "finished_utc": "2026-10-22T14:11:53.220340+00:00",
+    "effective_threadpools": []
+  },
+  "corrective_fit_reports": [
+    {
+      "path": "runs/corrections/exp_group_relvote_corrected.json",
+      "fit_seconds": 22.428,
+      "validation_accuracy_pct": 90.8521
+    },
+    {
+      "path": "runs/corrections/exp_rel_only_C0.002_s42.json",
+      "fit_seconds": 1.676,
+      "validation_accuracy_pct": 90.8521
+    },
+    {
+      "path": "runs/corrections/exp_vote_only_C0.002_s42.json",
+      "fit_seconds": 0.644,
+      "validation_accuracy_pct": 86.2155
+    }
+  ],
+  "corrective_fit_seconds_sum": 24.748,
+  "corrective_process_wall_seconds": 28.059914,
+  "limitations": [
+    "Historical feature_seconds repeats reused work; do not sum it across CSV rows.",
+    "Historical invocation-level wall times were not saved and cannot be reconstructed exactly.",
+    "Duplicate run IDs append CSV rows but overwrite old per-run JSON/bundle paths.",
+    "The legacy unstandardised file is a separate preprocessing version, not directly interchangeable.",
+    "Corrective validation controls were run after the test result was known; they did not select or change the frozen submission."
+  ]
+}

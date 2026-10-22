@@ -1,0 +1,92 @@
+{
+  "protocol": "dase7506-mp2-open-hard-verifier-v5",
+  "student_id": "3036837382",
+  "frozen_method": {
+    "method_file": "method/submission.py",
+    "features": "group-relative embedding vector (of L2-normalised frozen embeddings) + 5 vote/parse features",
+    "feature_dim": 1029,
+    "model": "L2-regularised logistic regression (sklearn LogisticRegression, lbfgs), binary cross-entropy, all positives kept",
+    "C": 0.002,
+    "seed": 42,
+    "train_pairs": 19020,
+    "train_pos_rate": 0.7546,
+    "train_accuracy_pct": 92.2397,
+    "validation_accuracy_pct": 91.604,
+    "test_accuracy_pct": 79.6574,
+    "tie_rule": "smallest original index among candidates within 1e-9 of the max score"
+  },
+  "checkpoint": {
+    "path": "release/checkpoint/model_bundle",
+    "files": {
+      "config.json": {
+        "bytes": 550,
+        "sha256": "913830e7eb6dfbba979be7b4e86a11782960a4a4a15e8b3f9b120b6c22a6bae3"
+      },
+      "linear.npz": {
+        "bytes": 25694,
+        "sha256": "fcea0bd554d10c06f5fbc4f9057c859a97e5d4d5db14d8a8132e6a6ac86f1105"
+      }
+    },
+    "uncompressed_bytes": 26244,
+    "uncompressed_mib": 0.025,
+    "limit_mib": 16
+  },
+  "timing": {
+    "measured_on": "Apple M2 (8 cores), macOS 15.6 (24G84), arm64",
+    "reference_machine": "Intel Xeon Platinum 8457C (course reference)",
+    "threads": {
+      "OMP_NUM_THREADS": 4,
+      "OPENBLAS_NUM_THREADS": 4,
+      "MKL_NUM_THREADS": 4,
+      "VECLIB_MAXIMUM_THREADS": 4,
+      "NUMEXPR_NUM_THREADS": 4
+    },
+    "method": "one fresh predict.py process plus one independent score_predictions.py process on the complete test bank, wall clock measured externally",
+    "repeats_total_seconds": [
+      0.209,
+      0.194,
+      0.194,
+      0.197,
+      0.202
+    ],
+    "total_seconds": {
+      "min": 0.194,
+      "mean": 0.199,
+      "max": 0.209
+    },
+    "limit_seconds": 30
+  },
+  "environment": {
+    "python": "3.12.15",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "threadpoolctl": "3.7.0"
+  },
+  "training_cost": {
+    "feature_seconds": 0.898,
+    "fit_seconds": 1.532,
+    "total_seconds": 2.43,
+    "device": "CPU (Apple M2), no GPU"
+  },
+  "provenance": {
+    "upstream_repo": "https://github.com/xudongwu-0/DASE7506-MP2",
+    "upstream_commit": "bb801f4f2e7629d270df765ab12c333b2dc616bb (2026-10-12)",
+    "package_manifest_verified": true,
+    "official_files_modified": false,
+    "source_ref": "mp2-final-20261022",
+    "original_audited_commit": "7835febd45da958c101b50b3394e4992b42a04d2",
+    "historical_freeze_chronology": "Not independently established by available original history; no retrospective pre-registration claim."
+  },
+  "corrections": {
+    "date": "2026-10-22",
+    "manifest": "runs/corrections/repair_controls_manifest.json",
+    "experiment_summary": "release/experiment-summary.json",
+    "diagnostic_only": true,
+    "frozen_assets_unchanged": true,
+    "corrected_group_validation_accuracy_pct": 90.8521,
+    "rel_only_fixed_C_validation_accuracy_pct": 90.8521,
+    "vote_only_fixed_C_validation_accuracy_pct": 86.2155
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "run_id": "m1_raw_C1.0_s42",
+  "config": "m1_raw",
+  "spec": "raw",
+  "dim": 1024,
+  "C": 1.0,
+  "seed": 42,
+  "train_accuracy_pct": 91.041,
+  "validation_accuracy_pct": 88.9724
+}

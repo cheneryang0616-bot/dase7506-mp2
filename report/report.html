@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@page { size: A4; margin: 16mm 14mm; }
+body { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9.6pt; line-height: 1.38; color:#111; }
+h1 { font-size: 16pt; margin: 0 0 6pt; }
+h2 { font-size: 12pt; margin: 12pt 0 4pt; border-bottom: 1px solid #bbb; padding-bottom: 2pt; }
+h3 { font-size: 10.5pt; margin: 9pt 0 3pt; }
+p { margin: 4pt 0; text-align: left; }
+p:has(+ table) { break-after: avoid; }
+table { border-collapse: collapse; width: 100%; margin: 6pt 0; font-size: 8.8pt; }
+th, td { border: 1px solid #999; padding: 2.5pt 4pt; text-align: left; }
+th { background: #eee; }
+thead { display: table-header-group; }
+ul { margin: 4pt 0 4pt 16pt; padding: 0; }
+li { margin: 2pt 0; }
+code { font-family: Menlo, monospace; font-size: 8.8pt; background: #f2f2f2; padding: 0 2pt; overflow-wrap: anywhere; }
+hr { border: none; border-top: 1px solid #ccc; margin: 8pt 0; }
+h2, h3 { break-after: avoid; }
+table, tr { break-inside: avoid; }
+</style></head><body><h1>Selecting Reliable LLM Reasoning: group-centred training and answer consensus</h1>
+<p>DASE7506 · Advanced Machine Learning Methods · Fall 2026 · MP2 Student ID: <b>3036837382</b> · Protocol <code>dase7506-mp2-open-hard-verifier-v5</code> Chosen question: <b>“Should a solution be judged on its own?”</b> Do group-centred training and same-question answer consensus improve candidate selection?</p>
+<hr/>
+<h2>1. Problem, metric and hypotheses</h2>
+<p>A language model produced four candidate solutions to each mathematics question. Exactly one integer index (0-3) must be returned per question, in bank order. The official scorer parses the selected candidate's <b>final numeric answer</b> with <code>common.parse_answer</code> (the <code>####</code> tail, else the last <code>\boxed{...}</code>) and compares it with the parsed reference; equivalent fractions and decimals count as correct, and <b>any</b> correct candidate earns the point. Reasoning steps are never graded. Success is therefore <i>selection accuracy in percent</i> on the complete test bank.</p>
+<p>Because grading only inspects the final answer, the whole task reduces to one question: <b>given four candidates, which one's final answer equals the reference?</b> The experiments address three hypotheses:</p>
+<ul><li><b>H1</b> - The frozen whole-trace representations carry useful correctness signal, so a light supervised model beats popularity-style baselines.</li><li><b>H2</b> - Group-centred representations and answer-consensus features improve over the tested absolute-vector training scheme. The role of centring in linear ranking requires separate interpretation.</li><li><b>H3</b> - Answer-consensus (majority voting) helps, but fails systematically when the majority is wrong or when several answers tie.</li></ul>
+<p>A negative comparison can still be informative. The saved configurations define the rules used below, but the available Git history does not independently establish when all rules were fixed or when the test bank was first inspected. The current audit found no reference-answer input in the prediction path. These are evidence limits, not proof of the full historical sequence. The final model and its reported test result remain frozen during the corrections and validation-only follow-ups.</p>
+<h2>2. Data and protocol</h2>
+<p>Official supply: 4,755 / 798 / 467 train/validation/test questions, four candidate traces each, one <code>float32 [N,4,1024]</code> whole-trace embedding per candidate (written on disk as <code>[4N,1024]</code> and reshaped by <code>common.load_inputs</code>). <code>python check_data.py</code> passes: hashes, split disjointness, feature/reference alignment, embedding shape <code>[4755|798|467, 4, 1024]</code>. The upstream commit is <code>bb801f4f2e7629d270df765ab12c333b2dc616bb</code> (2026-10-12) and all 20 files of <code>PACKAGE_MANIFEST.json</code> still hash to their listed digests - the official data, parser and scorer were not modified.</p>
+<p><b>Labels.</b> For every training question <i>q</i> and candidate <i>j</i>, <code>y[q,j] = 1</code> iff <code>parse_answer(candidate)</code> is not <code>None</code> <b>and</b> equals <code>parse_answer(reference)</code>. A question may have several correct candidates; the current implementation keeps every positive. 4,755 questions give 19,020 candidate records, but the experimental unit stays the question. A parse failure is not an answer and is never pooled with another failure - multiple <code>None</code>s are not treated as agreement.</p>
+<p><b>What the data looks like</b> (Phase-2 profile, <code>runs/phase2_stats.md</code>):</p>
+<table><thead><tr><th>statistic</th><th>train</th><th>validation</th></tr></thead><tbody>
+<tr><td>mean correct candidates / question</td><td>3.0185</td><td>3.0276</td></tr>
+<tr><td>questions with all four correct</td><td>2,242 (47.1 %)</td><td>379 (47.5 %)</td></tr>
+<tr><td>questions with ≥2 distinct valid answers</td><td>2,114 (44.5 %)</td><td>355 (44.5 %)</td></tr>
+<tr><td>parseable candidates / question (1/2/3/4)</td><td>27 / 81 / 628 / 4019</td><td>3 / 25 / 98 / 672</td></tr>
+<tr><td>positive rate over candidate records</td><td>0.7546</td><td>0.7571</td></tr>
+</tbody></table>
+<p>Two consequences drive the design. (i) Nearly half of all questions have four correct candidates, so any index scores on that subset. Uniform random therefore has an expected validation accuracy of 75.69 %; the saved seed-42 draw achieves 76.82 %, rather than the 25 % appropriate to one-positive four-way classification. (ii) The main discrimination problem lies in the ~45 % of questions where parsed answers disagree, and a candidate that ends without a readable <code>####</code> or <code>\boxed{...}</code> tail - or whose box contains a nested brace such as <code>\boxed{\frac{1}{2}}</code> - is unparseable and can never earn the point even when its number is right (4.6 % of train records, 4.9 % of validation records).</p>
+<h2>3. Method</h2>
+<h3>3.1 Fixed baselines</h3>
+<table><thead><tr><th>id</th><th>rule</th></tr></thead><tbody>
+<tr><td>B0</td><td>uniform random over 0-3, seed 42 (reported together with the mean correct-candidate ratio as the expected random accuracy)</td></tr>
+<tr><td>B1</td><td>always candidate 0 (does not search for the best position)</td></tr>
+<tr><td>B2</td><td>majority vote over valid parsed answers only; tie → smallest original index; all failures → 0</td></tr>
+<tr><td>B3</td><td>first candidate whose answer parses; all failures → 0</td></tr>
+</tbody></table>
+<h3>3.2 Features (input-only)</h3>
+<p>Nothing in the feature path reads a reference answer or a question id; each feature is computed from <code>question</code>, the four candidate texts and the frozen embeddings. Six groups:</p>
+<ul><li><b>l2</b> - candidate embedding, L2-normalised (raw row norms are ≈57, so normalisation matters).</li><li><b>raw</b> - unnormalised embedding, as a control.</li><li><b>rel</b> - <i>group-centred</i> vector: the candidate's normalised embedding minus the mean of its four same-question candidates. This removes the shared mean before training. For the final linear scorer the shared mean cancels in within-question ranking; it can still change the fitted model.</li><li><b>cos</b> - mean and maximum cosine similarity of the candidate to the other three.</li><li><b>vote</b> - five consensus features from the parsed answers of the same question: this answer's vote count, number of distinct valid answers, whether the candidate is in a top-vote group, whether the answer parses at all, and how many candidates parse.</li><li><b>surf</b> - ten surface features (characters, lines, digits, <code>\boxed</code>, <code>####</code>, <code>=</code>, LaTeX markers, number tokens) used as an explicit "does formatting already explain the score?" control.</li></ul>
+<p>All active feature blocks are standardised with means and standard deviations fitted on the training part only and stored in the inference asset; a near-zero standard deviation is replaced by 1.</p>
+<h3>3.3 Models</h3>
+<ul><li><b>M1/M2/M3 linear</b> - one logistic-regression score per candidate, binary cross-entropy, all positives kept; the four candidates share one parameter vector, so the model never treats the candidate position as a feature. Prediction is the across-candidate <code>argmax</code>.</li><li><b>Small MLP</b> - one hidden layer, widths 64 and 128, trained from scratch, no external weights.</li><li><b>Group multi-positive loss (optional, §4.4)</b> - <code>L(q) = -log Σ_{j∈P(q)} softmax(s_q)[j]</code>, implemented in NumPy with Adam. Questions whose candidates are all positive have zero data gradient.</li></ul>
+<p>Selection used question-level accuracy on validation, rather than per-candidate classification accuracy. The saved search includes more fits than the initial approximate 24-fit planning budget. Its actual scope and costs are reported in §6; the repeated use of validation is a limitation of model selection.</p>
+<h2>4. Results</h2>
+<h3>4.1 Baselines vs the frozen model (official scorer)</h3>
+<table><thead><tr><th>method</th><th>validation acc %</th><th>test acc %</th></tr></thead><tbody>
+<tr><td>B0 uniform random (seed 42)</td><td>76.817</td><td>49.679</td></tr>
+<tr><td>B1 always candidate 0</td><td>78.195</td><td>49.679</td></tr>
+<tr><td>B2 majority vote</td><td>86.216</td><td>69.165</td></tr>
+<tr><td>B3 first parseable candidate</td><td>81.704</td><td>52.677</td></tr>
+<tr><td><b>Frozen model (rel + vote, C = 0.002)</b></td><td><b>91.604</b></td><td><b>79.657</b></td></tr>
+</tbody></table>
+<p>The frozen model is 731/798 on validation and 372/467 on test (student ID 3036837382 submits <b>79.6574</b>; <code>release/test-score.json</code>). The test distribution is much harder - majority voting drops from 86.2 % to 69.2 %, consistently with the guide's "≥2 distinct valid answers" guarantee - but the model's margin over majority voting is <i>larger</i> there (+10.5 points) than on validation (+5.4). H1 holds: the frozen representations alone take a plain logistic regression well past the strongest fixed rule.</p>
+<h3>4.2 Feature-combination comparisons (validation, best <code>C</code> per row)</h3>
+<table><thead><tr><th>features</th><th>dim</th><th>val acc %</th><th>Δ vs full</th></tr></thead><tbody>
+<tr><td>surface only</td><td>10</td><td>81.203</td><td>−10.401</td></tr>
+<tr><td>vote only</td><td>5</td><td>86.216</td><td>−5.388</td></tr>
+<tr><td>absolute vector only (l2)</td><td>1024</td><td>89.724</td><td>−1.880</td></tr>
+<tr><td>l2 + cos</td><td>1026</td><td>89.975</td><td>−1.629</td></tr>
+<tr><td>abs + rel (no vote)</td><td>2048</td><td>90.727</td><td>−0.877</td></tr>
+<tr><td>l2 + vote</td><td>1029</td><td>90.476</td><td>−1.128</td></tr>
+<tr><td>l2 + rel + cos + vote</td><td>2055</td><td>91.479</td><td>−0.125</td></tr>
+<tr><td><b>rel + vote (frozen)</b></td><td><b>1029</b></td><td><b>91.604</b></td><td><b>0.000</b></td></tr>
+<tr><td>rel + cos + vote</td><td>1031</td><td>91.604</td><td>0.000</td></tr>
+<tr><td>rel + vote + surface</td><td>1039</td><td>91.604</td><td>0.000</td></tr>
+</tbody></table>
+<p>The tested surface features alone reach 81.2 %, and appending them to the final features does not increase validation accuracy (91.604 → 91.604). This establishes no extra benefit from these explicit features; it <b>does not exclude formatting information already encoded in the frozen vectors</b>. The group-centred training scheme plus consensus reaches 91.604 %, versus 89.724 % for the tested absolute-vector scheme and 90.476 % for absolute vectors plus consensus. These are feature-combination comparisons, with <code>C</code> selected per row. Switching from <code>rel+vote</code> to <code>l2</code> also changes the representation, so it is not a direct "remove vote" ablation.</p>
+<p>For a linear score, let <code>u_j</code> be the L2-normalised candidate vector, <code>m_q</code> the same-question mean, and <code>D</code> and <code>μ</code> the training-fitted scale and mean. Then <code>s_j = wᵀD⁻¹(u_j - m_q - μ) + vᵀvote_j + b</code>. The terms involving <code>m_q</code>, <code>μ</code> and <code>b</code> are shared by all four candidates and cancel in their score differences. Centring therefore <b>does not expand the linear ranking function family</b> or establish that the final vector score dynamically compares rival traces at prediction time. Its observed benefit may arise from the candidate-level training objective, fitted scales and effective regularisation. Holding the fitted weights and vote features fixed, replacing centred vectors by absolute vectors preserves all 798 validation choices in the audit (maximum pairwise score-difference error below <code>9e-15</code>). Vote features do explicitly use the other candidates' answers. H2 is supported as an empirical training-scheme comparison, with this restricted mechanism interpretation.</p>
+<p><b>Direct removals at the frozen settings.</b> To separate a true ablation from the best-<code>C</code> comparisons above, each remaining feature group was retrained at <code>C=0.002</code>, seed 42, with its own training-only standardisation. These controls were run <b>after the test results were already known</b>, using only train/validation inputs and references. They explain the existing method and were not used to reselect or replace the final model.</p>
+<table><thead><tr><th>features, fixed C=0.002</th><th>dim</th><th>train selection %</th><th>validation correct / 798</th><th>val acc %</th></tr></thead><tbody>
+<tr><td>rel + vote (frozen reference)</td><td>1029</td><td>92.2397</td><td>731</td><td>91.6040</td></tr>
+<tr><td>rel only (remove vote)</td><td>1024</td><td>92.8917</td><td>725</td><td>90.8521</td></tr>
+<tr><td>vote only (remove rel)</td><td>5</td><td>85.2576</td><td>688</td><td>86.2155</td></tr>
+</tbody></table>
+<p>Adding vote to the fixed-setting relative-vector fit yields a net six more correct questions (+0.7519 points); adding the vector features to vote-only yields 43 (+5.3885 points). This is specific to these settings and validation questions, without an independent post-selection guarantee. Logs: <code>runs/corrections/exp_rel_only_C0.002_s42.json</code> and <code>exp_vote_only_C0.002_s42.json</code>.</p>
+<h3>4.3 Regularisation and deterministic repeatability</h3>
+<p>The fit is deterministic: <code>lbfgs</code> on a fixed, convex objective with fixed features converges to the same solution for every seed, so all three seeds reproduce identically. Accuracy as a function of <code>C</code> for the frozen feature set:</p>
+<table><thead><tr><th>C</th><th>val acc % (seeds 17 / 42 / 2026)</th></tr></thead><tbody>
+<tr><td>0.001</td><td>91.353 / 91.353 / 91.353</td></tr>
+<tr><td>0.0015</td><td>91.604 / 91.604 / 91.604</td></tr>
+<tr><td><b>0.002</b></td><td><b>91.604 / 91.604 / 91.604</b></td></tr>
+<tr><td>0.003</td><td>91.479 / 91.479 / 91.479</td></tr>
+<tr><td>0.005</td><td>91.353 / 91.353 / 91.353</td></tr>
+</tbody></table>
+<p>Strong regularisation is useful in this search: training selection accuracy falls from 92.2 % (<code>C=0.002</code>) to 91.2 % at <code>C=0.0003</code> and rises to 93.4 % at <code>C=0.01</code> while validation peaks near <code>C=0.002</code>. The plateau (<code>C</code> 0.0015-0.002) shows a local region with equal validation accuracy. Changing <code>random_state</code> does not change this deterministic <code>lbfgs</code> optimisation path: the zero standard deviation establishes repeatability, <b>not independent evidence of generalisation stability</b>, and does not remove validation selection bias.</p>
+<h3>4.4 Nonlinear and group-loss alternatives (validation)</h3>
+<table><thead><tr><th>method</th><th>val acc %</th><th>note</th></tr></thead><tbody>
+<tr><td>MLP hidden 64</td><td>91.604</td><td>adam, 400 iters; training selection accuracy 100 %</td></tr>
+<tr><td>MLP hidden 128</td><td>91.228</td><td>training selection accuracy 100 %</td></tr>
+<tr><td>original group-loss run</td><td>90.852</td><td>loss/gradient implementation discrepancy; not a valid test of the stated objective</td></tr>
+<tr><td>corrected group-loss control</td><td>90.852</td><td>725/798; best checked iteration 50, training selection 96.320 %</td></tr>
+<tr><td><b>linear logreg (frozen)</b></td><td><b>91.604</b></td><td>reference</td></tr>
+</tbody></table>
+<p>The MLP reaches 100 % <b>training question-selection accuracy</b>: it selects a positive for every training question. This is not candidate-level classification accuracy and does not show that all 19,020 candidate labels were memorised. Neither tested width exceeds the linear model on validation, so the submitted model stays linear.</p>
+<p>The audit found a discrepancy in the original group-loss implementation: the loss was averaged over <code>N</code> questions but its data gradient divided by <code>4N</code> candidate rows, while the L2 gradient was unchanged. The saved 90.852 % result is retained as an audit record, <b>not as evidence against the stated loss</b>. The corrected gradient passes seven checks including finite differences (maximum absolute error below <code>6e-11</code>). The follow-up holds <code>λ=0.001</code>, learning rate 0.05, 1,500 iterations and seed 42; it reaches 725/798 at checked iteration 50, versus iteration 950 in the original run. The identical headline accuracy is coincidental and does not validate the old implementation. This corrected configuration still falls six questions below the frozen binary-loss model, but one configuration does not establish that the group objective is intrinsically inferior. All-positive groups do have zero data gradient (2,242 training questions); this alone does not explain performance. Like the direct ablations, this is a post-test-result, validation-only diagnostic and leaves the submitted model unchanged. Full trajectory: <code>runs/corrections/exp_group_relvote_corrected.json</code>.</p>
+<h2>5. Grouped evaluation and failure analysis</h2>
+<h3>5.1 Subsets (validation)</h3>
+<table><thead><tr><th>subset</th><th>n</th><th>model %</th><th>majority %</th></tr></thead><tbody>
+<tr><td>only one distinct valid answer, possibly with parse failures</td><td>443</td><td>100.0</td><td>100.0</td></tr>
+<tr><td>≥2 distinct valid answers ("hard")</td><td>355</td><td><b>81.13</b></td><td><b>69.01</b></td></tr>
+</tbody></table>
+<p>All observed gains over majority voting occur inside the hard subset. On the other 443 questions both methods achieve 100 %, but this subset is not safe for any choice: it can contain unparseable candidates, which still score zero. The truly all-four-correct subset contains 379 questions. Against majority voting the paired, question-level bootstrap (5,000 resamples, seed 17) gives <b>Δ = +5.39 points, 95 % CI [3.51, 7.39], P(better) = 1.00</b>; against "always candidate 0" it is +13.41 [10.65, 16.29]. Bootstrap intervals describe this validation set only and do not erase the selection effect of repeated comparisons. The local <code>C</code> plateau in §4.3 is descriptive and provides no correction for that selection effect.</p>
+<h3>5.2 Vote-pattern breakdown (validation)</h3>
+<table><thead><tr><th>vote pattern</th><th>n</th><th>model %</th><th>majority %</th></tr></thead><tbody>
+<tr><td>4 identical</td><td>379</td><td>100.00</td><td>100.00</td></tr>
+<tr><td>3+1</td><td>151</td><td>87.42</td><td>85.43</td></tr>
+<tr><td>3 + 1 fail</td><td>50</td><td>100.00</td><td>100.00</td></tr>
+<tr><td>2+2</td><td>34</td><td><b>85.29</b></td><td><b>41.18</b></td></tr>
+<tr><td>2+1+1</td><td>88</td><td>75.00</td><td>61.36</td></tr>
+<tr><td>2+1 + 1 fail</td><td>28</td><td>85.71</td><td>85.71</td></tr>
+<tr><td>1+1+1+1</td><td>20</td><td>65.00</td><td>25.00</td></tr>
+<tr><td>1+1+1 + 1 fail</td><td>20</td><td>65.00</td><td>55.00</td></tr>
+<tr><td>others (≥2 fails)</td><td>28</td><td>-</td><td>-</td></tr>
+</tbody></table>
+<p>The pattern is exactly what H3 predicts. Where one answer dominates (3+1, 4) majority voting is already good and the model adds little. Where the vote is tied, majority voting is forced onto the smallest index and performs poorly: <b>2+2 reaches 41.2 %</b> while the model reaches 85.3 %, and four-valid-answer groups reach 25 % (chance among four) while the model reaches 65 %. An important part of the advantage is tie resolution, although improvements also occur outside tied groups.</p>
+<h3>5.3 Error cases (fixed sampling rule, seed 42)</h3>
+<table><thead><tr><th>category</th><th>n</th></tr></thead><tbody>
+<tr><td>majority wrong, model <b>right</b> ("fixed")</td><td>54</td></tr>
+<tr><td>majority right, model <b>wrong</b> ("broken")</td><td>11</td></tr>
+<tr><td>both wrong</td><td>56</td></tr>
+</tbody></table>
+<p>Cases are grouped by the two methods' saved outcomes, with seed-42 sampling represented in the analysis artefacts. These examples illustrate successes and failures; they do not identify a causal mechanism:</p>
+<ul><li><b>Fixed - tie broken by sign (validation q419).</b> Parsed answers <code>-25, -25, 25, 25</code>; the reference is <code>25</code>. Majority voting must fall back to the smallest index and returns <code>-25</code>; the model selects a <code>25</code>. This shows a successful choice in a sign-related tie, without proving that the model checks signs.</li><li><b>Fixed - 2+2 tie (q539).</b> Answers <code>20, 20, 100, 100</code>, reference <code>100</code>. Majority picks <code>20</code> (smallest index among two-vote winners); the model picks <code>100</code>.</li><li><b>Fixed - all-distinct (q185).</b> <code>1, 4, 3333, 22500</code>, reference <code>4</code>. Majority picks the first candidate; the model picks the correct one.</li><li><b>Broken - plausible wrong majority (q275).</b> <code>400, 700, 700, 400</code>, reference <code>400</code>. Majority breaks the 2+2 tie toward index 0 and happens to be right; the model prefers the two <code>700</code> candidates and picks a wrong one. The scores favour a wrong answer in this tied group; the observation does not isolate which semantic or formatting cue caused that preference.</li><li><b>Broken - arithmetically wrong singleton (q29).</b> <code>9, 18, 6, unparseable</code>, reference <code>9</code>. The model picks <code>6</code>.</li><li><b>Both wrong (56).</b> In every one of the 798 validation questions at least one candidate parses</li></ul>
+<p>to the reference, so accuracy has a ceiling of 100 % and no error here is an impossible item - these are selection misses despite a positive being available. On 23 of the 56 the model follows majority voting to the <i>same</i> wrong index. Illustrative cases have a correct <b>minority</b> answer while both methods choose a more popular wrong answer (q: gold <code>19</code>, parsed votes <code>19 / 10 / 5 / 10</code>, both methods pick <code>10</code>; gold <code>40</code>, votes <code>100 / 80 / 40 / 100</code>, both pick <code>100</code>). This is consistent with a remaining plurality bias, although these cases do not establish its cause. The model does not simply copy majority voting: the two disagree on 2 out of 3 questions (agreement 33.3 %), and of the 110 questions where majority voting fails the model repairs 54 (49 %).</p>
+<h2>6. Resources, reproducibility and limits</h2>
+<table><thead><tr><th>item</th><th>measured</th><th>limit</th></tr></thead><tbody>
+<tr><td>inference asset, uncompressed</td><td><b>26,244 B = 0.025 MiB</b> (<code>config.json</code> + <code>linear.npz</code>)</td><td>16 MiB</td></tr>
+<tr><td>fresh prediction + independent scoring, complete test bank</td><td><b>min 0.194 / mean 0.199 / max 0.209 s</b></td><td>30 s</td></tr>
+<tr><td>independent audit rerun, prediction + scoring</td><td><b>0.201 + 0.074 = 0.275 s</b></td><td>30 s</td></tr>
+<tr><td>threads</td><td>4 total (<code>OMP</code>/<code>OPENBLAS</code>/<code>MKL</code>/<code>VECLIB</code>/<code>NUMEXPR</code> = 4)</td><td>4</td></tr>
+<tr><td>final model build</td><td>2.430 s (0.898 s features + 1.532 s fit), CPU only</td><td>-</td></tr>
+</tbody></table>
+<p>Hardware: Apple M2 (8 cores), macOS 15.6, Python 3.12.15, NumPy 2.5.3, SciPy 1.18.1, scikit-learn 1.9.1. The 30-second budget is decided on the course Xeon Platinum 8457C, which I cannot measure. The local measurements are well below the limit, but do not establish eligibility on the course reference machine.</p>
+<p><b>Search cost and records.</b> <code>experiments.csv</code> contains 125 rows and 120 distinct run IDs, including reruns, totalling <b>202.061 s</b> of recorded fitting. The older unstandardised search is separately retained as 12 rows in <code>experiments_v1_unstandardized.csv</code>, totalling <b>48.337 s</b> of fitting. The original, discrepant group-loss run records <b>18.619 s</b>, and the final bundle fit records <b>1.532 s</b>. These four separate records total <b>270.549 s of recorded fitting</b>. Correction follow-ups add <b>22.428 s</b> for group loss, <b>1.676 s</b> for rel-only and <b>0.644 s</b> for vote-only (24.748 s total, one CPU thread per process), bringing the recorded fitting sum to <b>295.297 s</b>. These sums are not an end-to-end development wall-clock measurement. A rerun appends a CSV row but can overwrite its run-ID JSON and bundle, so a distinct run ID does not enumerate every execution. Feature extraction was reused within sweeps: adding each row's repeated <code>feature_seconds</code> would overcount its actual cost. No complete development wall-clock total is available. The correction commands, timings and unchanged final-asset hashes are in <code>runs/corrections/repair_controls_manifest.json</code>.</p>
+<p>Contract checks (<code>tools/test_contract.py</code>, all pass): arbitrary question counts (1/5/7/100/798), Python <code>int</code> outputs in 0-3, choices in bank order, bit-identical repeats, a clear <code>FileNotFoundError</code> for a missing checkpoint, <code>ValueError</code> for <code>checkpoint=None</code> and for a shape mismatch. <code>predict.py</code> never opens references; the method never branches on IDs. A contract check exposed a reproducibility hazard that was corrected: six validation questions contain <b>duplicated candidate texts</b>, so the duplicated pair gets <i>exactly</i> equal scores (on four questions that pair sits at the top), and BLAS summation differences between differently-sized matmuls flipped the <code>argmax</code> by ~1e-15. The frozen method applies the documented tie rule - smallest original index among candidates within <code>1e-9</code> of the maximum - which is stable under changing batch size; it changes no reported accuracy (91.604 / 79.657).</p>
+<p><b>Limitations.</b> (i) The frozen embeddings are the only semantic signal; the model cannot verify a single arithmetic step, and the guide is explicit that the score only reflects the final answer. (ii) 47 % of train/validation questions are all-correct; separately reporting the 44.5 % validation hard subset (81.1 % vs 69.0 %) makes the remaining discrimination task visible. (iii) Repeated selection used this validation set; neither the bootstrap interval nor deterministic seed repeats corrects for it. (iv) Existing history does not independently establish the original test-access and freeze sequence. This revision preserves the submitted model, asset hashes and test score; new correction experiments are confined to training/validation analysis. (v) Frozen vectors may encode formatting, and the available controls cannot exclude reliance on those cues.</p>
+<p><b>Conclusion.</b> Group-centred training plus answer-consensus features, fitted with a single strongly-regularised logistic regression and no nonlinearity, raise selection accuracy from 86.2 % (majority vote) to 91.6 % on validation and from 69.2 % to 79.7 % on the harder test bank, for 26 KB of assets and approximately 0.2-0.3 s locally for fresh prediction and independent scoring. The method improves many tied-answer choices. Centring benefits the tested training scheme but cancels algebraically in the final linear ranking; the experiments do not prove semantic reasoning verification or rule out formatting signals in the vectors.</p>
+<h2>References and disclosure</h2>
+<ul><li>Course supply: <code>guide/GUIDE.md</code>, <code>code/README.md</code>, protocol <code>dase7506-mp2-open-hard-verifier-v5</code>; upstream commit <code>bb801f4f…</code>. Data derived from <a href="https://github.com/openai/grade-school-math">GSM8K</a> (MIT); candidates and representations frozen from <a href="https://huggingface.co/Qwen/Qwen3-0.6B">Qwen3-0.6B</a>. <code>data/LICENSE.txt</code>, <code>data/NOTICE.txt</code> retained; neither external data nor extra pretrained weights were used.</li><li><b>AI disclosure.</b> Substantive AI assistance (an LLM coding agent) was used to: implement the feature extractor, training/analysis scripts and the NumPy inference path; run the experiment sweeps; draft this report; and audit and correct the analysis and a comparison implementation. The numerical results come from saved execution logs and official scorer outputs, not invented estimates. The student is responsible for checking the submitted code, evidence and claims and confirming their understanding before submission. The frozen configuration, assets and seeds are listed in <code>release/resources.json</code>; asset hashes in <code>release/asset-hashes.txt</code>.</li></ul></body></html>

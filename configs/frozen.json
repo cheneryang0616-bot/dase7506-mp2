@@ -1,0 +1,43 @@
+{
+  "name": "frozen",
+  "description": "Frozen selection configuration and checkpoint. Current fitting code uses training only. Original test-access chronology is not independently established by available history; post-audit controls do not change this release.",
+  "method_file": "method/submission.py",
+  "feature_spec": {
+    "emb_mode": null,
+    "use_relative": true,
+    "use_cos": false,
+    "use_vote": true,
+    "use_surface": false,
+    "notes": "relative = L2-normalised embedding minus the mean of the four same-question candidates; vote = 5 consensus/parse features from parsed final answers"
+  },
+  "feature_dim": 1029,
+  "standardisation": "all blocks standardised with train-only mean/std, stored in the bundle",
+  "model": {
+    "type": "sklearn.linear_model.LogisticRegression",
+    "loss": "binary cross-entropy, all positives kept",
+    "solver": "lbfgs",
+    "C": 0.002,
+    "max_iter": 3000
+  },
+  "seed": 42,
+  "tie_rule": "smallest original candidate index among scores within 1e-9 of the maximum",
+  "data": {
+    "train_pairs": 19020,
+    "train_positive_rate": 0.7546,
+    "split_sizes": {
+      "train": 4755,
+      "validation": 798,
+      "test": 467
+    }
+  },
+  "expected": {
+    "train_accuracy_pct": 92.2397,
+    "validation_accuracy_pct": 91.604,
+    "test_accuracy_pct": 79.6574
+  },
+  "checkpoint": "release/checkpoint/model_bundle",
+  "assets": {
+    "config.json": "913830e7eb6dfbba979be7b4e86a11782960a4a4a15e8b3f9b120b6c22a6bae3",
+    "linear.npz": "fcea0bd554d10c06f5fbc4f9057c859a97e5d4d5db14d8a8132e6a6ac86f1105"
+  }
+}

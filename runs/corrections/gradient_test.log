@@ -1,0 +1,20 @@
+test_all_positive_with_l2 (__main__.GroupGradientTest.test_all_positive_with_l2) ... ok
+test_all_positive_without_l2 (__main__.GroupGradientTest.test_all_positive_without_l2) ... ok
+test_extreme_scores_remain_finite (__main__.GroupGradientTest.test_extreme_scores_remain_finite) ... ok
+test_multi_positive_with_l2 (__main__.GroupGradientTest.test_multi_positive_with_l2) ... ok
+test_multi_positive_without_l2 (__main__.GroupGradientTest.test_multi_positive_without_l2) ... ok
+test_no_positive_is_rejected (__main__.GroupGradientTest.test_no_positive_is_rejected) ... ok
+test_repeating_questions_preserves_mean (__main__.GroupGradientTest.test_repeating_questions_preserves_mean) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.065s
+
+OK
+{
+  "synthetic_seed": 7506,
+  "tests_passed": 7,
+  "finite_difference_step": 1e-06,
+  "max_abs_gradient_error_no_l2": 5.2617882273509053e-11,
+  "max_abs_gradient_error_with_l2": 5.552625026439273e-11,
+  "max_abs_gradient_error_all_positive_with_l2": 3.0970087605552976e-12
+}

@@ -1,0 +1,222 @@
+{
+  "train": {
+    "split": "train",
+    "n_questions": 4755,
+    "candidate_records": 19020,
+    "mean_correct_per_question": 3.0185,
+    "correct_count_distribution": {
+      "1": 711,
+      "2": 732,
+      "3": 1070,
+      "4": 2242
+    },
+    "position_accuracy_counts": [
+      3584,
+      3568,
+      3604,
+      3597
+    ],
+    "position_accuracy_pct": [
+      75.37,
+      75.04,
+      75.79,
+      75.65
+    ],
+    "parseable_count_distribution": {
+      "1": 27,
+      "2": 81,
+      "3": 628,
+      "4": 4019
+    },
+    "distinct_valid_answer_distribution": {
+      "1": 2641,
+      "2": 1338,
+      "3": 608,
+      "4": 168
+    },
+    "vote_patterns": {
+      "4": 2242,
+      "3+1": 885,
+      "2+1+1": 496,
+      "3 (+1fail)": 328,
+      "2+2": 228,
+      "2+1 (+1fail)": 188,
+      "1+1+1+1": 168,
+      "1+1+1 (+1fail)": 112,
+      "2 (+2fail)": 44,
+      "1+1 (+2fail)": 37,
+      "1 (+3fail)": 27
+    },
+    "majority_vote": {
+      "unique_winner_correct": 4054,
+      "unique_winner_wrong": 701,
+      "tie_or_multi": 545,
+      "all_parse_fail": 0,
+      "pct_correct_if_choose_majority": 85.26
+    },
+    "surface_pooled": {
+      "correct": {
+        "n": 14353,
+        "chars": 464.84,
+        "lines": 24.4,
+        "digits": 18.4,
+        "pct_boxed": 81.0
+      },
+      "wrong": {
+        "n": 4667,
+        "chars": 527.41,
+        "lines": 25.31,
+        "digits": 20.66,
+        "pct_boxed": 65.0
+      }
+    },
+    "length_buckets": {
+      "0-200": {
+        "correct": 470,
+        "total": 634,
+        "pct_correct": 74.13
+      },
+      "200-400": {
+        "correct": 5653,
+        "total": 7176,
+        "pct_correct": 78.78
+      },
+      "400-700": {
+        "correct": 6445,
+        "total": 8384,
+        "pct_correct": 76.87
+      },
+      "700-1000000000": {
+        "correct": 1785,
+        "total": 2826,
+        "pct_correct": 63.16
+      }
+    },
+    "boxed_vs_correct": {
+      "boxed": {
+        "correct": 11654,
+        "total": 14675,
+        "pct_correct": 79.41
+      },
+      "not_boxed": {
+        "correct": 2699,
+        "total": 4345,
+        "pct_correct": 62.12
+      }
+    },
+    "hard_subset_ge2valid": {
+      "n": 2114,
+      "pct": 44.46
+    }
+  },
+  "validation": {
+    "split": "validation",
+    "n_questions": 798,
+    "candidate_records": 3192,
+    "mean_correct_per_question": 3.0276,
+    "correct_count_distribution": {
+      "1": 117,
+      "2": 123,
+      "3": 179,
+      "4": 379
+    },
+    "position_accuracy_counts": [
+      624,
+      601,
+      595,
+      596
+    ],
+    "position_accuracy_pct": [
+      78.2,
+      75.31,
+      74.56,
+      74.69
+    ],
+    "parseable_count_distribution": {
+      "1": 3,
+      "2": 25,
+      "3": 98,
+      "4": 672
+    },
+    "distinct_valid_answer_distribution": {
+      "1": 443,
+      "2": 227,
+      "3": 108,
+      "4": 20
+    },
+    "vote_patterns": {
+      "4": 379,
+      "3+1": 151,
+      "2+1+1": 88,
+      "3 (+1fail)": 50,
+      "2+2": 34,
+      "2+1 (+1fail)": 28,
+      "1+1+1+1": 20,
+      "1+1+1 (+1fail)": 20,
+      "1+1 (+2fail)": 14,
+      "2 (+2fail)": 11,
+      "1 (+3fail)": 3
+    },
+    "majority_vote": {
+      "unique_winner_correct": 688,
+      "unique_winner_wrong": 110,
+      "tie_or_multi": 88,
+      "all_parse_fail": 0,
+      "pct_correct_if_choose_majority": 86.22
+    },
+    "surface_pooled": {
+      "correct": {
+        "n": 2416,
+        "chars": 456.42,
+        "lines": 23.72,
+        "digits": 18.21,
+        "pct_boxed": 80.0
+      },
+      "wrong": {
+        "n": 776,
+        "chars": 548.33,
+        "lines": 26.39,
+        "digits": 20.68,
+        "pct_boxed": 63.0
+      }
+    },
+    "length_buckets": {
+      "0-200": {
+        "correct": 91,
+        "total": 115,
+        "pct_correct": 79.13
+      },
+      "200-400": {
+        "correct": 963,
+        "total": 1180,
+        "pct_correct": 81.61
+      },
+      "400-700": {
+        "correct": 1095,
+        "total": 1447,
+        "pct_correct": 75.67
+      },
+      "700-1000000000": {
+        "correct": 267,
+        "total": 450,
+        "pct_correct": 59.33
+      }
+    },
+    "boxed_vs_correct": {
+      "boxed": {
+        "correct": 1921,
+        "total": 2409,
+        "pct_correct": 79.74
+      },
+      "not_boxed": {
+        "correct": 495,
+        "total": 783,
+        "pct_correct": 63.22
+      }
+    },
+    "hard_subset_ge2valid": {
+      "n": 355,
+      "pct": 44.49
+    }
+  }
+}

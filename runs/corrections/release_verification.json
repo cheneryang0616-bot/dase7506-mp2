@@ -1,0 +1,85 @@
+{
+  "status": "passed",
+  "verification_date": "2026-10-22",
+  "official_files_checked": 20,
+  "official_file_mismatches": [],
+  "checkpoint_files": {
+    "config.json": {
+      "bytes": 550,
+      "sha256": "913830e7eb6dfbba979be7b4e86a11782960a4a4a15e8b3f9b120b6c22a6bae3"
+    },
+    "linear.npz": {
+      "bytes": 25694,
+      "sha256": "fcea0bd554d10c06f5fbc4f9057c859a97e5d4d5db14d8a8132e6a6ac86f1105"
+    }
+  },
+  "asset_bytes": 26244,
+  "frozen_assets_unchanged": true,
+  "score": {
+    "protocol": "dase7506-mp2-open-hard-verifier-v5",
+    "split": "test",
+    "correct": 372,
+    "n": 467,
+    "accuracy": 79.65738758029978,
+    "scoring_seconds": 0.018255500006489456
+  },
+  "predictions_identical": true,
+  "data_check": {
+    "command": [
+      "check_data.py"
+    ],
+    "seconds": 0.7779600420035422,
+    "stdout": "{\n  \"protocol\": \"dase7506-mp2-open-hard-verifier-v5\",\n  \"splits\": {\n    \"train\": {\n      \"questions\": 4755,\n      \"embedding_shape\": [\n        4755,\n        4,\n        1024\n      ]\n    },\n    \"validation\": {\n      \"questions\": 798,\n      \"embedding_shape\": [\n        798,\n        4,\n        1024\n      ]\n    },\n    \"test\": {\n      \"questions\": 467,\n      \"embedding_shape\": [\n        467,\n        4,\n        1024\n      ]\n    }\n  },\n  \"status\": \"passed\"\n}\n",
+    "stderr": ""
+  },
+  "contract_check": {
+    "command": [
+      "tools/test_contract.py"
+    ],
+    "seconds": 0.33468441606964916,
+    "stdout": "[PASS] n=1: one choice per question\n[PASS] n=1: python ints in 0..3\n[PASS] n=5: one choice per question\n[PASS] n=5: python ints in 0..3\n[PASS] n=7: one choice per question\n[PASS] n=7: python ints in 0..3\n[PASS] n=100: one choice per question\n[PASS] n=100: python ints in 0..3\n[PASS] n=798: one choice per question\n[PASS] n=798: python ints in 0..3\n[PASS] deterministic across repeated calls\n[PASS] choices follow bank order\n[PASS] missing checkpoint raises FileNotFoundError\n[PASS] None checkpoint raises ValueError\n[PASS] shape mismatch raises ValueError\n\nALL PASS\n",
+    "stderr": ""
+  },
+  "fresh_prediction": {
+    "command": [
+      "predict.py",
+      "--method",
+      "../method/submission.py",
+      "--checkpoint",
+      "../checkpoint",
+      "--split",
+      "test",
+      "--output",
+      "../predictions.json"
+    ],
+    "seconds": 0.1507429169723764,
+    "stdout": "{\"protocol\": \"dase7506-mp2-open-hard-verifier-v5\", \"split\": \"test\", \"prediction_seconds\": 0.07520049996674061}\n",
+    "stderr": ""
+  },
+  "independent_scoring": {
+    "command": [
+      "score_predictions.py",
+      "--split",
+      "test",
+      "--predictions",
+      "../predictions.json",
+      "--output",
+      "../score.json"
+    ],
+    "seconds": 0.101970958057791,
+    "stdout": "{\n  \"protocol\": \"dase7506-mp2-open-hard-verifier-v5\",\n  \"split\": \"test\",\n  \"correct\": 372,\n  \"n\": 467,\n  \"accuracy\": 79.65738758029978,\n  \"scoring_seconds\": 0.018255500006489456\n}\n",
+    "stderr": ""
+  },
+  "complete_wall_seconds": 0.2527138750301674,
+  "thread_caps": {
+    "OMP_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "VECLIB_MAXIMUM_THREADS": "4",
+    "NUMEXPR_NUM_THREADS": "4"
+  },
+  "python": "3.12.15 | packaged by Anaconda, Inc. | (main, Oct  1 2026, 20:11:32) [Clang 20.1.8 ]",
+  "platform": "macOS-15.6-arm64-arm-64bit",
+  "environment_scope": "Independent source directory, same installed Python environment; official data linked.",
+  "qualification": "Local CPU evidence only; course reference Xeon decides runtime eligibility."
+}

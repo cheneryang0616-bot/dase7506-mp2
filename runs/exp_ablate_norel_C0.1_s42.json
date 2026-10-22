@@ -1,0 +1,10 @@
+{
+  "run_id": "ablate_norel_C0.1_s42",
+  "config": "ablate_norel",
+  "spec": "l2+cos+vote",
+  "dim": 1031,
+  "C": 0.1,
+  "seed": 42,
+  "train_accuracy_pct": 90.6204,
+  "validation_accuracy_pct": 89.9749
+}

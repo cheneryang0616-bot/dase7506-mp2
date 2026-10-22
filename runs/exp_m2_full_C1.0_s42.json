@@ -1,0 +1,10 @@
+{
+  "run_id": "m2_full_C1.0_s42",
+  "config": "m2_full",
+  "spec": "l2+rel+cos+vote",
+  "dim": 2055,
+  "C": 1.0,
+  "seed": 42,
+  "train_accuracy_pct": 95.4574,
+  "validation_accuracy_pct": 90.4762
+}

@@ -1,0 +1,10 @@
+{
+  "run_id": "m2_vote_C0.003_s42",
+  "config": "m2_vote",
+  "spec": "l2+vote",
+  "dim": 1029,
+  "C": 0.003,
+  "seed": 42,
+  "train_accuracy_pct": 89.3586,
+  "validation_accuracy_pct": 89.2231
+}

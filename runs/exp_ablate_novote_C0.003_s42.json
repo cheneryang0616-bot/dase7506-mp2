@@ -1,0 +1,10 @@
+{
+  "run_id": "ablate_novote_C0.003_s42",
+  "config": "ablate_novote",
+  "spec": "l2+rel+cos",
+  "dim": 2050,
+  "C": 0.003,
+  "seed": 42,
+  "train_accuracy_pct": 92.8076,
+  "validation_accuracy_pct": 90.8521
+}

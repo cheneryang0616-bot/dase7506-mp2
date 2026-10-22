@@ -1,0 +1,12 @@
+{
+  "config": "rel_only",
+  "spec": "rel",
+  "dim": 1024,
+  "C": 0.002,
+  "seed": 42,
+  "train_accuracy_pct": 92.8917,
+  "validation_accuracy_pct": 90.8521,
+  "feature_seconds": 0.987,
+  "fit_seconds": 1.676,
+  "train_pos_rate": 0.7546
+}

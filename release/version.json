@@ -1,0 +1,19 @@
+{
+  "source_ref": "mp2-final-20261022",
+  "source_repository": "https://github.com/cheneryang0616-bot/dase7506-mp2",
+  "original_audited_commit": "7835febd45da958c101b50b3394e4992b42a04d2",
+  "checkpoint_directory": "release/checkpoint/model_bundle",
+  "asset_sha256": {
+    "config.json": "913830e7eb6dfbba979be7b4e86a11782960a4a4a15e8b3f9b120b6c22a6bae3",
+    "linear.npz": "fcea0bd554d10c06f5fbc4f9057c859a97e5d4d5db14d8a8132e6a6ac86f1105"
+  },
+  "official_test_score": {
+    "correct": 372,
+    "n": 467,
+    "accuracy": 79.65738758029978
+  },
+  "notes": [
+    "The named Git tag identifies the corrected source/report and matching unchanged checkpoint.",
+    "Source tag is created only after final verification; historic freeze chronology is not reconstructed."
+  ]
+}

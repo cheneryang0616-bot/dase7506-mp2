@@ -1,0 +1,10 @@
+{
+  "run_id": "rel_surf_vote_C0.003_s42",
+  "config": "rel_surf_vote",
+  "spec": "rel+vote+surf",
+  "dim": 1039,
+  "C": 0.003,
+  "seed": 42,
+  "train_accuracy_pct": 92.4921,
+  "validation_accuracy_pct": 91.4787
+}

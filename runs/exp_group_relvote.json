@@ -1,0 +1,12 @@
+{
+  "config": "rel_only_vote",
+  "loss": "group-multi-positive",
+  "all_positive_groups_train": 2242,
+  "l2": 0.001,
+  "lr": 0.05,
+  "iters": 1500,
+  "best_iter": 950,
+  "validation_accuracy_pct": 90.8521,
+  "fit_seconds": 18.619,
+  "dim": 1029
+}

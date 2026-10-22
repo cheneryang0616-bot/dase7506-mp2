@@ -1,0 +1,10 @@
+{
+  "run_id": "ablate_nosurf_C0.01_s42",
+  "config": "ablate_nosurf",
+  "spec": "l2+rel+cos+vote",
+  "dim": 2055,
+  "C": 0.01,
+  "seed": 42,
+  "train_accuracy_pct": 93.5647,
+  "validation_accuracy_pct": 90.9774
+}

@@ -1,0 +1,10 @@
+{
+  "run_id": "rel_only_vote_C0.0003_s42",
+  "config": "rel_only_vote",
+  "spec": "rel+vote",
+  "dim": 1029,
+  "C": 0.0003,
+  "seed": 42,
+  "train_accuracy_pct": 91.1672,
+  "validation_accuracy_pct": 90.6015
+}

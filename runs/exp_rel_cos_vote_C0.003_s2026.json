@@ -1,0 +1,10 @@
+{
+  "run_id": "rel_cos_vote_C0.003_s2026",
+  "config": "rel_cos_vote",
+  "spec": "rel+cos+vote",
+  "dim": 1031,
+  "C": 0.003,
+  "seed": 2026,
+  "train_accuracy_pct": 92.6183,
+  "validation_accuracy_pct": 91.3534
+}

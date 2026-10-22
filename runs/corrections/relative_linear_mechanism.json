@@ -1,0 +1,8 @@
+{
+  "scope": "validation inputs only; frozen release weights; no refitting or selection",
+  "questions": 798,
+  "same_argmax_questions": 798,
+  "max_abs_constant_shift_residual": 1.0436096431476471e-14,
+  "max_abs_pairwise_score_difference_residual": 1.2434497875801753e-14,
+  "interpretation": "For these fixed linear weights, replacing the centered embedding by its absolute L2-normalized embedding and keeping the same scaling adds a question-specific constant. It preserves candidate ranking. Retraining can still change scaling, regularization, and weights. Vote features continue to depend on other candidates."
+}

@@ -1,0 +1,13 @@
+run_id,config,spec,dim,C,seed,train_acc,val_acc,feature_seconds,fit_seconds,assumption,note
+m2_vote_C0.01_s42,m2_vote,l2+vote,1029,0.01,42,89.674,89.348,0.301,2.544,H1/H2,C sweep
+m2_vote_C0.1_s42,m2_vote,l2+vote,1029,0.1,42,90.452,89.724,0.301,2.36,H1/H2,C sweep
+m2_vote_C1.0_s42,m2_vote,l2+vote,1029,1.0,42,90.852,90.727,0.301,3.228,H1/H2,C sweep
+m2_vote_C10.0_s42,m2_vote,l2+vote,1029,10.0,42,90.915,90.727,0.301,3.574,H1/H2,C sweep
+m2_full_C0.01_s42,m2_full,l2+rel+cos+vote,2055,0.01,42,93.375,91.228,0.574,4.277,H1/H2,C sweep
+m2_full_C0.1_s42,m2_full,l2+rel+cos+vote,2055,0.1,42,94.637,90.602,0.574,7.366,H1/H2,C sweep
+m2_full_C1.0_s42,m2_full,l2+rel+cos+vote,2055,1.0,42,95.268,90.1,0.574,7.872,H1/H2,C sweep
+m2_full_C10.0_s42,m2_full,l2+rel+cos+vote,2055,10.0,42,95.373,89.724,0.574,10.032,H1/H2,C sweep
+m1_l2_C0.01_s42,m1_l2,l2,1024,0.01,42,90.831,89.223,0.222,0.886,H1/H2,C sweep
+m1_l2_C0.1_s42,m1_l2,l2,1024,0.1,42,91.125,89.724,0.222,1.71,H1/H2,C sweep
+m1_l2_C1.0_s42,m1_l2,l2,1024,1.0,42,90.978,89.223,0.222,2.293,H1/H2,C sweep
+m1_l2_C10.0_s42,m1_l2,l2,1024,10.0,42,90.957,89.223,0.222,2.195,H1/H2,C sweep

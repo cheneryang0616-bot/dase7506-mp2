@@ -1,0 +1,10 @@
+{
+  "run_id": "m2_cos_C1.0_s42",
+  "config": "m2_cos",
+  "spec": "l2+cos",
+  "dim": 1026,
+  "C": 1.0,
+  "seed": 42,
+  "train_accuracy_pct": 90.9148,
+  "validation_accuracy_pct": 89.2231
+}

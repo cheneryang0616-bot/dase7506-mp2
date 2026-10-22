@@ -1,0 +1,10 @@
+{
+  "run_id": "m0_voteonly_C0.1_s42",
+  "config": "m0_voteonly",
+  "spec": "vote",
+  "dim": 5,
+  "C": 0.1,
+  "seed": 42,
+  "train_accuracy_pct": 85.2576,
+  "validation_accuracy_pct": 86.2155
+}

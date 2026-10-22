@@ -1,0 +1,10 @@
+{
+  "run_id": "m0_surfonly_C0.003_s42",
+  "config": "m0_surfonly",
+  "spec": "surf",
+  "dim": 10,
+  "C": 0.003,
+  "seed": 42,
+  "train_accuracy_pct": 78.0652,
+  "validation_accuracy_pct": 80.3258
+}
